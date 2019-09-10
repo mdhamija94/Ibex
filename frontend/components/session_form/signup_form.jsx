@@ -65,9 +65,12 @@ class SignupForm extends React.Component {
             <input
               className="session-input"
               type="text"
-              value={this.state.username}
+              value={this.state.email}
               onChange={this.handleInput('email')}
             />
+            <div className="session-errors">
+              {this.props.errors.email}
+            </div>
             <label className="session-field-label">
               Password
             </label>

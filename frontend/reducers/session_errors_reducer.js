@@ -14,10 +14,8 @@ const SessionErrorsReducer = (state = {}, action) => {
   switch (action.type) {
     case RECEIVE_SESSION_ERRORS:
       action.errors.forEach( errorMessage => {
-        debugger
         nextState[errorObject[errorMessage]] = errorMessage
       });
-      debugger
       return nextState;
     case RECEIVE_CURRENT_USER:
       return {};

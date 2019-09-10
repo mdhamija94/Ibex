@@ -5,15 +5,13 @@ import configureStore from './store/store';
 
 // Testing Imports
 import * as SessionUtil from './util/session_api_util';
+import * as SneakerUtil from './util/sneaker_api_util';
 import * as Thunks from './actions/session_actions';
 
 document.addEventListener("DOMContentLoaded", () => {
   let store;
   if (window.currentUser) {
     const preloadedState = {
-      // entities: {
-      //   users: { [window.currentUser.id]: window.currentUser }
-      // },
       session: { id: window.currentUser.id }
     };
     store = configureStore(preloadedState);
@@ -29,6 +27,8 @@ document.addEventListener("DOMContentLoaded", () => {
   window.signup = SessionUtil.signup;
   window.login = SessionUtil.login;
   window.logout = Thunks.logout;
+
+  window.fetchSneakers = SneakerUtil.fetchSneakers;
   // End Testing
 
   const root = document.getElementById('root');

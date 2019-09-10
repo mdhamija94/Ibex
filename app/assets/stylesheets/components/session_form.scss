@@ -3,8 +3,9 @@
 .session-form-container {
   display: flex;
   border: 1px solid black;
-  height: 660px;
-  margin: 0px 90px;
+  max-width: 1260px;
+  max-height: 660px;
+  margin: 0px auto;
   font-family: 'Overpass', sans-serif;
 }
 
