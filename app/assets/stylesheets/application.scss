@@ -1,0 +1,154 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@import "./reset.scss";
+
+// Top Level Styling Start
+
+body {
+  font-family: 'Josefin Sans', serif;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+// Header Styling Start
+
+.header-container {
+  border-bottom: 1px solid #ccc;
+  text-transform: uppercase;
+}
+
+.header-logo {
+  display: inline-block;
+  margin: 30px 0px 25px 0px;
+  letter-spacing: 8px;
+}
+
+.header-container li {
+  padding: 35px 0px 20px 30px;
+}
+
+.header-nav {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 90px;
+}
+
+.header-logo {
+  font-weight: 700;
+}
+
+.header-list {
+  display: flex;
+  font-size: 11.5px;
+  color: #777777;
+}
+
+#menu-icon {
+  color: black;
+  font-size: 15px;
+  transition: scale 2s;
+}
+
+#menu-icon:hover {
+  transform: scale(1.3)
+}
+
+.nav-links:hover {
+  color: black;
+  // add color transition effect
+}
+
+// .header-list > li > a:hover {
+//   color: black;
+// }
+
+// Main Content Styling Start
+
+.main-content-container {
+  // border-bottom: 1px solid #ccc;
+  text-transform: uppercase;
+}
+
+// Session Form Styling Start
+
+.session-form-container {
+  display: flex;
+  border: 1px solid black;
+  height: 660px;
+  margin: 0px 90px;
+  font-family: 'Overpass', sans-serif;
+}
+
+.session-image-container {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+.session-image {
+  display: flex;
+  margin: auto 0px;
+  overflow: hidden;
+}
+
+.session-input-container {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  width: 50%;
+  border-left: 1px solid black;
+}
+
+.session-header {
+  display: flex;
+  justify-content: center;
+  margin: 100px 0px;
+  font-size: 24px;
+  font-weight: 900;
+  text-shadow: 0.75px 0 black;
+  letter-spacing: 5px;
+}
+
+.session-field-label {
+  display: flex;
+  margin: 0px 10% 15px;
+  padding: 20px 0px 0px;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 2px;
+}
+
+.session-input {
+  display: flex;
+  margin: 0px 10%;
+  width: 80%;
+  border-bottom: 1px solid black;
+  font-size: 15px;
+}
+
+.session-form-button {
+  border-top: 1px solid black;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center; 
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  padding: 15px 0px;
+}
