@@ -1,5 +1,4 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom';
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -8,9 +7,13 @@ class LoginForm extends React.Component {
       email: "",
       password: ""
     };
+    this.demoUser = {
+      email: "demo@ibex.io",
+      password: "DemoUserLogin23!"
+    };
 
     this.handleSubmit = this.handleSubmit.bind(this);
-    // this.handleErrors = this.handleErrors.bind(this);
+    this.handleDemo = this.handleDemo.bind(this);
   }
 
   handleInput(type) {
@@ -25,21 +28,11 @@ class LoginForm extends React.Component {
     this.props.login(user);
   }
 
-  // handleErrors() {
-  //   if (this.props.errors.length) {
-  //     return (
-  //       <ul>
-  //         {
-  //           this.props.errors.map((err, i) => {
-  //             <li key={i}>
-  //               {err}
-  //             </li> 
-  //           })
-  //         }
-  //       </ul>
-  //     )
-  //   }
-  // }
+  handleDemo(e) {
+    e.preventDefault();
+    const demoUser = Object.assign({}, this.demoUser);
+    this.props.login(demoUser);
+  }
 
   render() {
     return (
@@ -76,6 +69,9 @@ class LoginForm extends React.Component {
               onChange={this.handleInput('password')}
             />
           </form>
+          <button className="demo-button" onClick={this.handleDemo}>
+            <a href="">Demo User</a>
+          </button>
           <button className="session-form-button" onClick={this.handleSubmit}>
             <a href="">Log In</a>
           </button>

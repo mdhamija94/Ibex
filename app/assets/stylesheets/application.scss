@@ -72,10 +72,6 @@ body {
   // add color transition effect
 }
 
-// .header-list > li > a:hover {
-//   color: black;
-// }
-
 // Main Content Styling Start
 
 .main-content-container {
@@ -154,6 +150,7 @@ body {
   border-top: 1px solid black;
   position: absolute;
   bottom: 0;
+  right: 0;
   width: 50%;
   text-align: center; 
   text-transform: uppercase;
@@ -164,17 +161,15 @@ body {
 }
 
 .session-form-button:hover, .demo-button:hover {
-  text-decoration: underline;
   color: white;
   background-color: black;
 }
 
 .demo-button {
   border-top: 1px solid black;
-  border-left: 1px solid black;
+  border-right: 1px solid black;
   position: absolute;
   bottom: 0;
-  right: 0;
   width: 50%;
   text-align: center; 
   text-transform: uppercase;
@@ -182,4 +177,46 @@ body {
   font-weight: 600;
   letter-spacing: 2px;
   padding: 15px 0px;
+}
+
+// Home Page Styling Start
+
+.hero-image-container {
+  // display: flex;
+  height: 660px;
+  overflow: hidden;
+  position: relative;
+  background: url("../assets/ts1_low.png");
+  background-size: cover;
+  font-family: 'Overpass', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: white;
+};
+
+.hero-subheader {
+  position: absolute;
+  bottom: 130px;
+  left: 90px;
+  font-size: 12px;
+}
+
+.hero-header {
+  position: absolute;
+  bottom: 80px;
+  left: 90px;
+  font-weight: 900;
+  font-size: 30px;
+}
+
+.hero-cta {
+  position: absolute;
+  bottom: 80px;
+  right: 90px;
+  background-color: white;
+  color: black;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: bold;
+  padding: 15px 50px;
 }
