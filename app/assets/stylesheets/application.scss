@@ -80,7 +80,7 @@ body {
 
 .main-content-container {
   // border-bottom: 1px solid #ccc;
-  text-transform: uppercase;
+  // text-transform: uppercase;
 }
 
 // Session Form Styling Start
@@ -119,8 +119,17 @@ body {
   margin: 100px 0px;
   font-size: 24px;
   font-weight: 900;
+  text-transform: uppercase;
   text-shadow: 0.75px 0 black;
   letter-spacing: 5px;
+}
+
+.session-errors {
+  margin: 0px 10%;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  color: red;
 }
 
 .session-field-label {
@@ -130,6 +139,7 @@ body {
   font-size: 12px;
   font-weight: 900;
   letter-spacing: 2px;
+  text-transform: uppercase;
 }
 
 .session-input {
@@ -144,7 +154,28 @@ body {
   border-top: 1px solid black;
   position: absolute;
   bottom: 0;
-  width: 100%;
+  width: 50%;
+  text-align: center; 
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  padding: 15px 0px;
+}
+
+.session-form-button:hover, .demo-button:hover {
+  text-decoration: underline;
+  color: white;
+  background-color: black;
+}
+
+.demo-button {
+  border-top: 1px solid black;
+  border-left: 1px solid black;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 50%;
   text-align: center; 
   text-transform: uppercase;
   font-size: 12px;

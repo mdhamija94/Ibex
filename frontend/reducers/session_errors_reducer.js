@@ -1,16 +1,28 @@
 import { RECEIVE_SESSION_ERRORS, CLEAR_ERRORS } from '../actions/error_actions';
 import { RECEIVE_CURRENT_USER } from '../actions/session_actions';
 
-const SessionErrorsReducer = (state = [], action) => {
-  Object.freeze(state);
+const errorObject = {
+  "Full name can't be blank": "fullName",
+  "Email can't be blank": "email",
+  "Password is too short (minimum is 6 characters)": "password",
+  "Email or password not correct.": "login"
+};
 
+const SessionErrorsReducer = (state = {}, action) => {
+  Object.freeze(state);
+  let nextState = {};
   switch (action.type) {
     case RECEIVE_SESSION_ERRORS:
-      return action.errors;
+      action.errors.forEach( errorMessage => {
+        debugger
+        nextState[errorObject[errorMessage]] = errorMessage
+      });
+      debugger
+      return nextState;
     case RECEIVE_CURRENT_USER:
-      return [];
+      return {};
     case CLEAR_ERRORS:
-      return [];
+      return {};
     default:
       return state;
   }

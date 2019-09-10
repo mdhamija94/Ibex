@@ -10,6 +10,7 @@ class LoginForm extends React.Component {
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    // this.handleErrors = this.handleErrors.bind(this);
   }
 
   handleInput(type) {
@@ -24,9 +25,21 @@ class LoginForm extends React.Component {
     this.props.login(user);
   }
 
-  handleErrors() {
-    
-  }
+  // handleErrors() {
+  //   if (this.props.errors.length) {
+  //     return (
+  //       <ul>
+  //         {
+  //           this.props.errors.map((err, i) => {
+  //             <li key={i}>
+  //               {err}
+  //             </li> 
+  //           })
+  //         }
+  //       </ul>
+  //     )
+  //   }
+  // }
 
   render() {
     return (
@@ -41,7 +54,6 @@ class LoginForm extends React.Component {
             Log In
           </h1>
           <form onSubmit={this.handleSubmit}>
-            {this.props.errors}
             <label className="session-field-label">
               Email Address
             </label>
@@ -51,6 +63,9 @@ class LoginForm extends React.Component {
               value={this.state.username}
               onChange={this.handleInput('email')}
             />
+            <div className="session-errors">
+              {this.props.errors.login}
+            </div>
             <label className="session-field-label">
               Password
             </label>

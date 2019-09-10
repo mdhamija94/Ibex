@@ -10,11 +10,6 @@ const App = () => (
     <header className="header-container">
       <Nav />
     </header>
-    {/* <section>
-      <a href="#">
-        <img src="./assets/ts1_low.jpeg" alt="" />
-      </a>
-    </section> */}
 
     <main className="main-content-container">
       <AuthRoute path="/login" component={LoginFormContainer} />

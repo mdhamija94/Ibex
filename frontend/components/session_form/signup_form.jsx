@@ -9,6 +9,7 @@ class SignupForm extends React.Component {
       email: "",
       password: ""
     };
+    this.demoUser = {};
 
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -25,15 +26,6 @@ class SignupForm extends React.Component {
     this.props.signup(user);
   }
 
-  // renderErrors() {
-  //   debugger
-  //   return (
-  //     <ul>
-  //       <li>{this.props.errors}</li>
-  //     </ul>
-  //   )
-  // }
-
   render() {
     return (
       <section className="session-form-container">
@@ -46,7 +38,6 @@ class SignupForm extends React.Component {
             Create an Account
           </h1>
           <form onSubmit={this.handleSubmit}>
-            {this.props.errors}
             <label className="session-field-label">
               Full Name
             </label>
@@ -56,6 +47,9 @@ class SignupForm extends React.Component {
               value={this.state.username}
               onChange={this.handleInput('full_name')}
             />
+            <div className="session-errors">
+              {this.props.errors.fullName}
+            </div>
             <label className="session-field-label">
               Email Address
             </label>
@@ -74,6 +68,9 @@ class SignupForm extends React.Component {
               value={this.state.password}
               onChange={this.handleInput('password')}
             />
+            <div className="session-errors">
+              {this.props.errors.password}
+            </div>
           </form>
           <button className="session-form-button" onClick={this.handleSubmit}>
             <a href="">Create Account</a>
