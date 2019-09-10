@@ -40,7 +40,7 @@ class LoginForm extends React.Component {
       <section className="session-form-container">
 
         <div className="session-image-container">
-          <img src="./assets/aj1-session.png" alt="" className="session-image"/>
+          <img src={window.aj1} alt="" className="session-image"/>
         </div>
 
         <div className="session-input-container">
