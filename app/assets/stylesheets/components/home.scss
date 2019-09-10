@@ -1,0 +1,41 @@
+// Home Page Styling Start
+
+.hero-image-container {
+  // display: flex;
+  height: 660px;
+  overflow: hidden;
+  position: relative;
+  background: url("../assets/ts1_low.png");
+  background-size: cover;
+  font-family: 'Overpass', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: white;
+};
+
+.hero-subheader {
+  position: absolute;
+  bottom: 130px;
+  left: 90px;
+  font-size: 12px;
+}
+
+.hero-header {
+  position: absolute;
+  bottom: 80px;
+  left: 90px;
+  font-weight: 900;
+  font-size: 30px;
+}
+
+.hero-cta {
+  position: absolute;
+  bottom: 80px;
+  right: 90px;
+  background-color: white;
+  color: black;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: bold;
+  padding: 15px 50px;
+}
