@@ -19,6 +19,9 @@
 // Top Level Styling Start
 
 body {
+  max-width: 1440px;
+  outline: 1px solid black;
+  margin: auto;
   font-family: 'Josefin Sans', serif;
   font-size: 16px;
   font-weight: 400;
@@ -27,6 +30,11 @@ body {
 // Main Content Styling Start
 
 .main-content-container {
+  // max-width: 1440px;
+  // border-left: 1px solid black;
+  // border-right: 1px solid black;
+  // margin: auto;
+  margin-bottom: 90px;
   // border-bottom: 1px solid #ccc;
   // text-transform: uppercase;
 }

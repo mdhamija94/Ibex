@@ -1,11 +1,12 @@
 // Session Form Styling Start
 
 .session-form-container {
+  max-width: 1260px;
+  margin: auto;
+  margin-bottom: 90px;
   display: flex;
   border: 1px solid black;
-  max-width: 1260px;
   max-height: 660px;
-  margin: 0px auto;
   font-family: 'Overpass', sans-serif;
 }
 

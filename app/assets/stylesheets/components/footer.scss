@@ -1,0 +1,64 @@
+// Footer Styling Start
+
+.footer-container {
+  min-height: 660px;
+  background-color: black;
+  color: white;
+  position: relative;
+}
+
+.footer-list {
+  display: flex;
+  padding: 20px;
+  margin-left: 80%;
+}
+
+.footer-list li {
+  margin: 10px;
+}
+
+.footer-icon-container {
+  display: flex;
+  min-width: 40px;
+  max-width: 40px;
+  min-height: 40px;
+  max-height: 40px;
+  border: 1px solid white;
+}
+
+.footer-icon-container a i {
+  display: flex;
+  font-size: 20px;
+  padding: 11px;
+}
+
+.app-link-container {
+  border: 1px solid white;
+  display: flex;
+  width: 90%;
+  max-height: 460px;
+  margin: 0px 80px;
+  font-family: 'Source Serif Pro', serif;
+}
+
+#app-link-cta {
+  margin: 170px auto;
+  letter-spacing: 0.5px;
+}
+
+.footer-link-button {
+  display: flex;
+  margin: 70px auto;
+  background-color: black;
+  border: 1px solid white;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: bold;
+  padding: 15px 50px;
+}
+
+.footer-link-button:hover, .footer-icon-container:hover {
+  background-color: white;
+  border: 1px solid white;
+  color: black;
+}
