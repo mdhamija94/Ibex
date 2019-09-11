@@ -12,17 +12,19 @@ class SneakerIndex extends React.Component {
 
   render() {
     return (
-      <div className="sneaker-index-container">
-        <h1 className="index-header">Shop All</h1>
-        <ul>
-          {
-            this.props.sneakers.map( (sneaker, idx) => {
-              return (
-                <SneakerIndexItem sneaker={sneaker} key={idx} />
-              )
-            })
-          }
-        </ul>
+      <div>
+        <p className="index-header">Shop All</p>
+        <div className="sneaker-index-container">
+          <ul className="sneaker-items-container">
+            {
+              this.props.sneakers.map( (sneaker, idx) => {
+                return (
+                  <SneakerIndexItem sneaker={sneaker} key={idx} />
+                )
+              })
+            }
+          </ul>
+        </div>
       </div>
     )
   }

@@ -2,9 +2,11 @@ import React from 'react';
 
 const SneakerIndexItem = ({ sneaker }) => {
   return (
-    <li className="sneaker-item-container">
-      <span className="sneaker-item">{sneaker.name}</span>
-    </li>
+    <div className="sneaker-item">
+      <li className="sneaker-item-name">
+        <span></span>{sneaker.name}
+      </li>
+    </div>
   )
 }
 
