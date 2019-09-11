@@ -6,7 +6,8 @@ import configureStore from './store/store';
 // Testing Imports
 import * as SessionUtil from './util/session_api_util';
 import * as SneakerUtil from './util/sneaker_api_util';
-import * as Thunks from './actions/session_actions';
+import * as SessionAction from './actions/session_actions';
+import * as SneakerAction from './actions/sneaker_actions';
 
 document.addEventListener("DOMContentLoaded", () => {
   let store;
@@ -26,9 +27,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   window.signup = SessionUtil.signup;
   window.login = SessionUtil.login;
-  window.logout = Thunks.logout;
 
-  window.fetchSneakers = SneakerUtil.fetchSneakers;
+  window.logout = SessionAction.logout;
+
+  // window.fetchSneakers = SneakerUtil.fetchSneakers;
+  window.fetchSneakers = SneakerAction.fetchSneakers;
   // End Testing
 
   const root = document.getElementById('root');

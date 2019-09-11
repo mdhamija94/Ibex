@@ -38,9 +38,8 @@ class LoginForm extends React.Component {
   render() {
     return (
       <section className="session-form-container">
-
         <div className="session-image-container">
-          <img src={window.aj1} alt="" className="session-image"/>
+          <img src={window.ow_aj1} alt="" className="session-image"/>
         </div>
 
         <div className="session-input-container">
@@ -70,12 +69,15 @@ class LoginForm extends React.Component {
               onChange={this.handleInput('password')}
             />
           </form>
+
           <div className="session-form-link">
             <Link to="/signup">Create Account +</Link>
           </div>
+
           <button className="demo-button" onClick={this.handleDemo}>
             <a href="">Demo User</a>
           </button>
+          
           <button className="session-form-button" onClick={this.handleSubmit}>
             <a href="">Log In</a>
           </button>

@@ -38,6 +38,7 @@ class SignupForm extends React.Component {
   render() {
     return (
       <section className="session-form-container">
+
         <div className="session-image-container">
           <img src={window.aj1} alt="" className="session-image" />
         </div>
@@ -84,9 +85,11 @@ class SignupForm extends React.Component {
               {this.props.errors.password}
             </div>
           </form>
+
           <button className="demo-button" onClick={this.handleDemo}>
             <a href="">Demo User</a>
           </button>
+          
           <button className="session-form-button" onClick={this.handleSubmit}>
             <a href="">Create Account</a>
           </button>
