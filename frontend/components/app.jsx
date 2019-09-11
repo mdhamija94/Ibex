@@ -5,6 +5,7 @@ import Footer from './footer/footer';
 import HomeContainer from './home/home_container';
 import LoginFormContainer from './session_form/login_form_container';
 import SignupFormContainer from './session_form/signup_form_container';
+import SneakerIndexContainer from './sneaker/sneaker_index_container';
 import AuthRoute from '../util/route_util';
 
 const App = () => (
@@ -17,6 +18,7 @@ const App = () => (
       <AuthRoute path="/login" component={ LoginFormContainer } />
       <AuthRoute path="/signup" component={ SignupFormContainer } />
       <Route exact path="/" component={ HomeContainer }/>
+      <Route path="/index" component={ SneakerIndexContainer } />
     </main>
 
     <footer>
