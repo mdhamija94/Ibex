@@ -31,10 +31,22 @@
   max-height: 315px;
 }
 
+.sneaker-item:hover {
+  cursor: pointer;
+  outline: 2px solid black;
+}
+
 .sneaker-item-image-container {
   display: flex;
   margin-top: 30px;
-  // outline: 1px solid black;
+  width: 100%;
+  overflow: hidden;
+}
+
+.sneaker-item-image {
+  width: 125%;
+  height: 105%;
+  margin-left: -25px;
 }
 
 .sneaker-item-name {
@@ -43,7 +55,6 @@
   justify-content: center;
   text-align: center;
   position: relative;
-
   margin: 0px 10%;
   font-family: 'Overpass', sans-serif;
   text-transform: uppercase;
