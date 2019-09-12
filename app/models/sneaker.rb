@@ -17,7 +17,8 @@
 #
 
 class Sneaker < ApplicationRecord
-
   validates :name, :description, :sku, :release_date, :colorway, :brand, :silhouette, :technology, :designer, presence: true
+
+  has_one_attached :photo
   
 end
