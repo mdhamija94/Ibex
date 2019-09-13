@@ -9,7 +9,7 @@ const Nav = () => {
       </h1>
       <ul className="header-list">
         <li>
-          <span className="nav-links"><Link to="/index">Shop All</Link></span>
+          <span className="nav-links"><Link to="/sneakers">Shop All</Link></span>
         </li>
         <li>
           <span className="nav-links"><a href="#">Styles</a></span>

@@ -18,7 +18,7 @@ const App = () => (
     <main className="main-content-container">
       <Switch>
         <Route path="/sneakers/:sneakerId" component={ SneakerDetailContainer } />
-        <Route path="/index" component={ SneakerIndexContainer } />
+        <Route path="/sneakers" component={ SneakerIndexContainer } />
         <AuthRoute path="/login" component={ LoginFormContainer } />
         <AuthRoute path="/signup" component={ SignupFormContainer } />
         <Route exact path="/" component={ HomeContainer } />

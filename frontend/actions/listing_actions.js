@@ -7,3 +7,5 @@ const receiveListings = (listings) => ({
   listings
 });
 
+export const fetchListings = (sneakerId) => dispatch => ListingUtil(sneakerId)
+  .then( listings => dispatch(receiveListings(listings)));
