@@ -2161,8 +2161,8 @@ require 'open-uri'
 # Photo Mapping to Sneakers
 Sneaker.all.each do |sneaker|
   joined_sku = sneaker[:sku].split(" ").join("")
-  photo = open("https://ibex-io.s3-us-west-1.amazonaws.com/#{joined_sku}.jpeg") # path interpolate sku.jpeg
-  # photo = open("https://ibex-pro.s3-us-west-1.amazonaws.com/#{joined_sku}.jpeg") # path interpolate sku.jpeg
+  # photo = open("https://ibex-io.s3-us-west-1.amazonaws.com/#{joined_sku}.jpeg") # path interpolate sku.jpeg
+  photo = open("https://ibex-pro.s3-us-west-1.amazonaws.com/#{joined_sku}.jpeg") # path interpolate sku.jpeg
   # photo = File.open("Users/mohitdhamija/Desktop/ibex_photos/#{joined_sku}.jpeg") # path interpolate sku.jpeg
 
   sneaker.photo.attach(
