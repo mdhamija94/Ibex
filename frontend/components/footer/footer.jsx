@@ -20,13 +20,12 @@ const Footer = () => {
           </a>
         </li>
       </ul>
-      <div className="app-link-container">
-        <p id="app-link-cta">
-          {/* Send a link to your phone to download the app that inspired Ibex */}
-          Follow the link to download the app that inspired Ibex.
+      <div className="goat-link-container">
+        <p id="goat-link-cta">
+          IBEX is a clone of GOAT.com, the global destination for buying and selling sneakers. Follow the link below to visit the original site.
           <button className="footer-link-button">
-            <a href="https://apps.apple.com/us/app/goat-buy-sell-sneakers/id966758561">
-              Get the App
+            <a href="https://www.goat.com/">
+              Visit GOAT
               </a>
           </button>
         </p>

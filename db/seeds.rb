@@ -11,6 +11,7 @@ require 'open-uri'
 Sneaker.destroy_all
 Listing.destroy_all
 
+# Main arrays used to attribute sizes to listings in Listing Factory Methods
 main_size_run = [ 8.0, 8.5, 9.0, 9.5, 10.0, 10.5, 11.0, 11.5, 12.0 ]
 full_size_run = [ 4.0, 5.0, 6.0, 7.0, 7.5, 8.0, 8.5, 9.0, 9.5, 10.0, 10.5, 11.0, 11.5, 12.0, 13.0, 14.0 ]
 

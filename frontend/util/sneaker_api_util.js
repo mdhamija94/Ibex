@@ -4,3 +4,10 @@ export const fetchSneakers = () => {
     url: '/api/sneakers/',
   });
 };
+
+export const fetchSneaker = (id) => {
+  return $.ajax({
+    method: 'GET',
+    url: `/api/sneakers/${id}`
+  });
+};

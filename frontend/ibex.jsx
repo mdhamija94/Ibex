@@ -29,6 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
   window.login = SessionUtil.login;
 
   window.logout = SessionAction.logout;
+  window.fetchSneaker = SneakerUtil.fetchSneaker;
 
   // window.fetchSneakers = SneakerUtil.fetchSneakers;
   window.fetchSneakers = SneakerAction.fetchSneakers;

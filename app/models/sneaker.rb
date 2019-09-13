@@ -20,5 +20,9 @@ class Sneaker < ApplicationRecord
   validates :name, :description, :sku, :release_date, :colorway, :brand, :silhouette, :technology, :designer, presence: true
 
   has_one_attached :photo
+
+  has_many :listings,
+    foreign_key: :sneaker_id,
+    class_name: 'Listing'
   
 end

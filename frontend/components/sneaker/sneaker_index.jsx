@@ -1,5 +1,6 @@
 import React from 'react';
 import SneakerIndexItem from './sneaker_index_item';
+import { Link } from 'react-router-dom';
 
 class SneakerIndex extends React.Component {
   constructor(props) {
@@ -19,7 +20,9 @@ class SneakerIndex extends React.Component {
             {
               this.props.sneakers.map( (sneaker, idx) => {
                 return (
-                  <SneakerIndexItem sneaker={sneaker} key={idx} />
+                  <Link to={`/sneaker/${sneaker.id}`} key={idx} >
+                    <SneakerIndexItem sneaker={sneaker} key={idx} />
+                  </Link>
                 )
               })
             }
