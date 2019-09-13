@@ -3,6 +3,7 @@ import React from 'react';
 class SneakerDetail extends React.Component {
   componentDidMount() {
     this.props.fetchSneaker(this.props.match.params.sneakerId);
+      window.scrollTo(0,0)
   }
 
   render() {
@@ -75,39 +76,6 @@ class SneakerDetail extends React.Component {
             <span className="nutritional-fact-key">Colorway</span>
             <span className="nutritional-fact-value">{sneaker.colorway}</span>
           </div>
-
-          {/* <table className="sneaker-nutritional-facts">
-            <tr>
-              <td>
-
-              </td>
-              <td>
-
-              </td>
-            </tr>
-            <tr>
-              <td>
-
-              </td>
-              <td>
-
-              </td>
-            </tr>
-            <tr>
-              <td>
-
-              </td>
-              <td>
-
-              </td>
-            </tr>
-          </table> */}
-          
-          
-          {/* {sneaker.brand}
-          {sneaker.silhouette}
-          {sneaker.technology}
-          {sneaker.designer} */}
         </article>
     </section>
     )
