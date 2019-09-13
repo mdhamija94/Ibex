@@ -20,7 +20,7 @@ class SneakerIndex extends React.Component {
             {
               this.props.sneakers.map( (sneaker, idx) => {
                 return (
-                  <Link to={`/sneaker/${sneaker.id}`} key={idx} >
+                  <Link to={`/sneakers/${sneaker.id}`} key={idx} >
                     <SneakerIndexItem sneaker={sneaker} key={idx} />
                   </Link>
                 )

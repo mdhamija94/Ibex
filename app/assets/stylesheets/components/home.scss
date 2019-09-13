@@ -38,3 +38,40 @@
   font-weight: bold;
   padding: 15px 50px;
 }
+
+  .home-session-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px auto;
+  }
+
+  .home-login-button {
+    border-right: 1px solid black;
+    text-transform: uppercase;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    padding: 10px 15px;
+  }
+
+  .home-signup-button {
+    text-transform: uppercase;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    padding: 10px 0px 0px 15px;
+  }
+
+  .home-logout-button {
+    text-transform: uppercase;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    padding: 10px;
+  }
+
+  .home-signup-button:hover, 
+  .home-login-button:hover, 
+  .home-logout-button:hover {
+    text-decoration: underline;
+  }

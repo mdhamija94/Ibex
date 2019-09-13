@@ -3,7 +3,7 @@ import React from 'react';
 class SneakerDetail extends React.Component {
   componentDidMount() {
     this.props.fetchSneaker(this.props.match.params.sneakerId);
-      window.scrollTo(0,0)
+    window.scrollTo(0,0);
   }
 
   render() {
@@ -32,12 +32,12 @@ class SneakerDetail extends React.Component {
               </div>
             </div>
 
-            <button className="demo-button">
+            <button className="buy-new-button">
               <a href="">Buy New</a>
             </button>
 
-            <button className="session-form-button">
-              <a href="">Buy Used</a>
+            <button className="buy-used-button">
+              Buy Used - Sold Out
             </button>
           </div>
         </article>
