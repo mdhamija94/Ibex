@@ -2,8 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 class Home extends React.Component {
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  }
+
   render() {
-    debugger
     const sessionDisplay = this.props.currentUser ? (
       <button className="home-logout-button" onClick={this.props.logout}>
         <Link to="/">Log Out</Link>

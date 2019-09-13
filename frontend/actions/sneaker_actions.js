@@ -8,13 +8,14 @@ const receiveSneakers = (sneakers) => ({
   sneakers: sneakers
 });
 
-const receiveSneaker = (sneaker) => ({
+const receiveSneaker = ({ sneaker, listings }) => ({
   type: RECEIVE_SNEAKER,
-  sneaker
+  sneaker,
+  listings
 });
 
 export const fetchSneakers = () => dispatch => SneakerUtil.fetchSneakers()
   .then( sneakers => dispatch(receiveSneakers(sneakers)));
 
 export const fetchSneaker = (id) => dispatch => SneakerUtil.fetchSneaker(id)
-  .then( sneaker => dispatch(receiveSneaker(sneaker)));
+  .then( payload => dispatch(receiveSneaker(payload)));

@@ -1,16 +1,36 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import SneakerTitlePanel from './sneaker_title_panel';
+// import ListingIndex from './listing_index';
+import ListingIndex from './listing/listing_index';
 
 class SneakerDetail extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      showListings: this.props.showListings
+    };
+  }
+
   componentDidMount() {
     this.props.fetchSneaker(this.props.match.params.sneakerId);
     window.scrollTo(0,0);
   }
 
+  componentDidUpdate(prevProps) {
+
+    if (prevProps.location.pathname !== this.props.location.pathname) {
+      this.setState({
+        showListings: true
+      });
+    }
+  }
+
   render() {
+    
     let { sneaker } = this.props;
 
     if (!sneaker) return null;
-
     return (
       <section>
         <article className="sneaker-display-container">
@@ -23,22 +43,7 @@ class SneakerDetail extends React.Component {
           </div>
 
           <div className="sneaker-detail-container">
-            <div className="sneaker-title-container">
-              <div className="sneaker-title">
-                {sneaker.name}
-              </div>
-              <div className="sneaker-sku">
-                SKU: {sneaker.sku}
-              </div>
-            </div>
-
-            <button className="buy-new-button">
-              <a href="">Buy New</a>
-            </button>
-
-            <button className="buy-used-button">
-              Buy Used - Sold Out
-            </button>
+            { this.state.showListings ? <ListingIndex listings={this.props.listings}/> : < SneakerTitlePanel props={this.props} /> }
           </div>
         </article>
 

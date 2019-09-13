@@ -17,6 +17,10 @@ class SignupForm extends React.Component {
     this.handleDemo = this.handleDemo.bind(this);
   }
 
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  }
+
   handleInput(type) {
     return (e) => {
       this.setState({ [type]: e.target.value });
