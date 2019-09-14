@@ -22,7 +22,7 @@
 }
 
 .sneaker-item {
-  outline: 1px solid #888888;
+  outline: 1px solid black;
   margin-top: 1px;
   margin-left: 1px;
   width: 315px;
@@ -30,12 +30,11 @@
 }
 
 .sneaker-item:hover {
-  cursor: pointer;
   outline: 2px solid black;
+  z-index: 1000;
 }
 
 .sneaker-item-image-container {
-  // display: flex;
   margin-top: 30px;
   overflow: hidden;
 }

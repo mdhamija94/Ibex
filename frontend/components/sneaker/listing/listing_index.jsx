@@ -1,8 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const ListingIndex = ({ listings }) => {
+  debugger
   return (
-    <ul className="listing-index">
+    <div className="listing-index-container" id="listing-scrollbar">
       <div className="listing-heading-container">
         <h3 id="buy-new">Buy New</h3>
         <h1 id="us-sizes">US Sizes</h1>
@@ -10,14 +12,18 @@ const ListingIndex = ({ listings }) => {
       {
         listings.map((listing, idx) => {
           return (
-            <li className="listing-index-item">
-              <span className="listing-size">{listing.size}</span>
-              <span className="listing-price">{listing.price}</span>
-            </li>
-          )
-        })
+              <Link to={`/sneakers/${listing.sneaker_id}/listings/add?size=${listing.size}`} className="listing-index-item">
+                <div className="listing-size">
+                  <span>{listing.size}M</span>
+                </div>
+                <div className="listing-price">
+                  <span>${listing.price}</span>
+                </div>
+              </Link>
+            )
+          })
       }
-    </ul>
+    </div>
   )
 }
 

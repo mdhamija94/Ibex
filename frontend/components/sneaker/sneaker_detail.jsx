@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import SneakerTitlePanel from './sneaker_title_panel';
-// import ListingIndex from './listing_index';
 import ListingIndex from './listing/listing_index';
 
 class SneakerDetail extends React.Component {
