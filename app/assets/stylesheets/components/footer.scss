@@ -54,6 +54,7 @@
 }
 
 .footer-link-button {
+  cursor: pointer;
   display: flex;
   margin: 70px auto;
   background-color: black;
@@ -64,7 +65,14 @@
   padding: 15px 50px;
 }
 
-.footer-link-button:hover, .footer-icon-container:hover {
+.footer-link-button:hover {
+  text-decoration: underline;
+  background-color: white;
+  border: 1px solid white;
+  color: black;
+}
+
+.footer-icon-container:hover {
   background-color: white;
   border: 1px solid white;
   color: black;

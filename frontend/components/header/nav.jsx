@@ -12,7 +12,7 @@ const Nav = () => {
           <span className="nav-links"><Link to="/sneakers">Shop All</Link></span>
         </li>
         <li>
-          <span className="nav-links"><a href="#">Styles</a></span>
+          <span className="nav-links"><Link to="/styles">Styles</Link></span>
         </li>
         <li>
           <a href="#">

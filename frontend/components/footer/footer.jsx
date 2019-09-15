@@ -23,11 +23,11 @@ const Footer = () => {
       <div className="goat-link-container">
         <p id="goat-link-cta">
           IBEX is a clone of GOAT.com, the global destination for buying and selling sneakers. Follow the link below to visit the original site.
-          <button className="footer-link-button">
-            <a href="https://www.goat.com/">
+          <a href="https://www.goat.com/">
+            <button className="footer-link-button">
               Visit GOAT
-              </a>
-          </button>
+            </button>
+          </a>
         </p>
       </div>
     </section>

@@ -1,10 +1,6 @@
-// .sneaker-detail-container {
-// }
-
 .sneaker-display-container {
   max-width: 1260px;
   margin: auto;
-  margin-bottom: 90px;
   display: flex;
   border: 1px solid black;
   height: 660px;
@@ -102,6 +98,19 @@
   padding: 15px 0px;
 }
 
+.details-link {
+  margin: 35px 0px 100px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-family: 'Overpass', sans-serif;
+  font-size: 11px;
+  font-weight: bolder;
+}
+
+.details-link span {
+  padding: 5px;
+}
+
 .sneaker-description-container {
   max-width: 1260px;
   margin: auto;
@@ -114,7 +123,7 @@
   font-family: 'Overpass', sans-serif;
   font-size: 11px;
   color: #0B0B0B;
-  margin: 30px 0px;
+  margin-bottom: 30px;
 }
 
 .sneaker-description {

@@ -28,6 +28,7 @@
 }
 
 .hero-cta {
+  cursor: pointer;
   position: absolute;
   bottom: 80px;
   right: 90px;
@@ -37,6 +38,10 @@
   letter-spacing: 2px;
   font-weight: bold;
   padding: 15px 50px;
+}
+
+.hero-cta:hover {
+  text-decoration: underline;
 }
 
   .home-session-container {
