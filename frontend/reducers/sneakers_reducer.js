@@ -1,4 +1,8 @@
-import { RECEIVE_SNEAKERS, RECEIVE_SNEAKER } from '../actions/sneaker_actions';
+import { 
+  RECEIVE_SNEAKERS, 
+  RECEIVE_SNEAKER, 
+  RECEIVE_SEARCH 
+} from '../actions/sneaker_actions';
 
 const SneakersReducer = (state = {}, action) => {
   Object.freeze(state);
@@ -9,6 +13,8 @@ const SneakersReducer = (state = {}, action) => {
     case RECEIVE_SNEAKER:
       const sneaker = action.sneaker;
       return Object.assign({}, state, { [sneaker.id]: sneaker });
+    case RECEIVE_SEARCH:
+      return action.searchResults;
     default:
       return state;
   }

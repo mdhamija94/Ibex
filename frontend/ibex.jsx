@@ -33,6 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // window.fetchSneakers = SneakerUtil.fetchSneakers;
   window.fetchSneakers = SneakerAction.fetchSneakers;
+  window.fetchSearchResults = SneakerAction.fetchSearchResults;
   // End Testing
 
   const root = document.getElementById('root');

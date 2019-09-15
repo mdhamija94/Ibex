@@ -11,5 +11,16 @@ class Api::SneakersController < ApplicationController
 
     render :index
   end
+
+  def search
+    query = params[:query].downcase
+    debugger
+    @search_results = Sneaker.all.select do |sneaker|
+      debugger
+      sneaker.name.downcase.include?(query)
+    end
+
+    render :index
+  end
   
 end

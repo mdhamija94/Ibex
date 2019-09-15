@@ -9,5 +9,6 @@ Rails.application.routes.draw do
     resources :sneakers, only: [:show, :index] do
       resources :listings, only: [:show, :index]
     end
+    get 'sneakers/search', to: 'sneakers#search'
   end
 end
