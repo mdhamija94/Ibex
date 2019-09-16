@@ -49,7 +49,7 @@ class SneakerDetail extends React.Component {
         <article className="sneaker-description-container">
           <button className="details-link">
             <span>Details</span>
-            <i class="fas fa-angle-down"></i>
+            <i className="fas fa-angle-down"></i>
           </button>
           <div className="sneaker-description-title">
             {sneaker.name}

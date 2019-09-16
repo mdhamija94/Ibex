@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const ListingIndex = ({ listings }) => {
-  debugger
   return (
     <div className="listing-index-container" id="listing-scrollbar">
       <div className="listing-heading-container">

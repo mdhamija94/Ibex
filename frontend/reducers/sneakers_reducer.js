@@ -1,10 +1,13 @@
 import { 
   RECEIVE_SNEAKERS, 
   RECEIVE_SNEAKER, 
-  RECEIVE_SEARCH 
+  RECEIVE_SEARCH,
+  RESET_SNEAKERS
 } from '../actions/sneaker_actions';
 
-const SneakersReducer = (state = {}, action) => {
+const sneakerDefaultState = {}
+
+const SneakersReducer = (state = sneakerDefaultState, action) => {
   Object.freeze(state);
 
   switch (action.type) {
@@ -15,6 +18,8 @@ const SneakersReducer = (state = {}, action) => {
       return Object.assign({}, state, { [sneaker.id]: sneaker });
     case RECEIVE_SEARCH:
       return action.searchResults;
+    case RESET_SNEAKERS:
+      return sneakerDefaultState;
     default:
       return state;
   }

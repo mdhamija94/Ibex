@@ -7,19 +7,20 @@ import LoginFormContainer from './session_form/login_form_container';
 import SignupFormContainer from './session_form/signup_form_container';
 import SneakerIndexContainer from './sneaker/sneaker_index_container';
 import SneakerDetailContainer from './sneaker/sneaker_detail_container';
+import SearchContainer from './search/search_container';
 import Styles from './styles/styles';
 import AuthRoute from '../util/route_util';
 
 const App = () => (
   <div>
-    <header className="header-container">
-      <Nav />
-    </header>
-
     <main className="main-content-container">
+      <header className="header-container">
+        <Nav />
+      </header>
       <Switch>
         <Route path="/sneakers/:sneakerId" component={ SneakerDetailContainer } />
         <Route path="/sneakers" component={ SneakerIndexContainer } />
+        <Route path="/search" component={ SearchContainer } />
         <Route path="/styles" component={ Styles } />
         <AuthRoute path="/login" component={ LoginFormContainer } />
         <AuthRoute path="/signup" component={ SignupFormContainer } />

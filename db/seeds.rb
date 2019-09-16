@@ -2101,6 +2101,6 @@ Sneaker.all.each do |sneaker|
 
   sneaker.photo.attach(
     io: photo, 
-    filename: "joined_sku}.jpeg"
+    filename: "#{joined_sku}.jpeg"
   )
 end

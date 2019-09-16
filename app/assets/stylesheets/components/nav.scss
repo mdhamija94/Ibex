@@ -1,10 +1,13 @@
 // Header Styling Start
 
 .header-container {
-  // border-bottom: 1px solid #ccc;
-  max-width: 1440px;
-  margin: auto;
+  box-shadow: -1px 0px 0px 0px black, 1px 0px 0px 0px black;
+  width: 1440px;
   text-transform: uppercase;
+  position: fixed;
+  top: 0;
+  background-color: white;
+  z-index: 100;
 }
 
 .header-logo {

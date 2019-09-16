@@ -14,12 +14,13 @@ class Api::SneakersController < ApplicationController
 
   def search
     query = params[:query].downcase
-    debugger
-    @search_results = Sneaker.all.select do |sneaker|
-      debugger
-      sneaker.name.downcase.include?(query)
-    end
 
+    if query.present?
+      @sneakers = Sneaker.where('LOWER(name) ~ :query OR LOWER(brand) ~ :query OR LOWER(designer) ~ :query', query: query)
+    else
+      @sneakers = Sneaker.none
+    end
+    
     render :index
   end
   

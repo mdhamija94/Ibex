@@ -8,7 +8,8 @@ Rails.application.routes.draw do
     resource :session, only: [:new, :create, :destroy]
     resources :sneakers, only: [:show, :index] do
       resources :listings, only: [:show, :index]
+      get 'search', on: :collection
     end
-    get 'sneakers/search', to: 'sneakers#search'
+    # get 'sneakers/search', to: 'sneakers#search'
   end
 end

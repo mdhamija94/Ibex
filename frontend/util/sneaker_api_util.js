@@ -12,7 +12,7 @@ export const fetchSneaker = (id) => {
   });
 };
 
-export const fetchSearchResults = (query) => {
+export const searchSneakers = (query) => {
   return $.ajax({
     method: 'GET',
     url: '/api/sneakers/search',

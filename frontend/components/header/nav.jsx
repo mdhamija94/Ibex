@@ -16,7 +16,7 @@ const Nav = () => {
         </li>
         <li>
           <a href="#">
-            <span className="nav-links"><i className="fas fa-search"></i></span>
+            <span className="nav-links"><Link to="/search"><i className="fas fa-search"></i></Link></span>
           </a>
         </li>
         <li>

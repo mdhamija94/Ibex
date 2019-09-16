@@ -1,9 +1,14 @@
 import { connect } from 'react-redux';
 import Search from './search';
-import fetchSearchResults from '../../actions/sneaker_actions';
+import { searchSneakers, resetSneakers } from '../../actions/sneaker_actions';
 
-const mapDispatchToProps = (dispatch) => ({
-  fetchSearchResults: (query) => dispatch(fetchSearchResults(query))
+const mapStateToProps = (state) => ({
+  sneakers: Object.values(state.entities.sneakers)
 });
 
-export default connect(null, mapDispatchToProps)(Search);
+const mapDispatchToProps = (dispatch) => ({
+  searchSneakers: (query) => dispatch(searchSneakers(query)),
+  resetSneakers: () => dispatch(resetSneakers())
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Search);
