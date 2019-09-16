@@ -25,7 +25,7 @@ class Home extends React.Component {
 
     return (
       <div>
-        <a href="">
+        <Link to="/sneakers/19">
           <section className="hero-image-container">
               <h3 className="hero-subheader">
                 Featured Release
@@ -37,7 +37,7 @@ class Home extends React.Component {
                 Shop Now
               </button>
           </section>
-        </a>
+        </Link>
         <div className="home-session-container">
           { sessionDisplay }
         </div>
