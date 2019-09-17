@@ -7,7 +7,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchSneakers: () => dispatch(fetchSneakers())
+  fetchSneakers: (page) => dispatch(fetchSneakers(page))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SneakerIndex);

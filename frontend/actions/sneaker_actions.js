@@ -25,7 +25,7 @@ export const resetSneakers = () => ({
   type: RESET_SNEAKERS
 })
 
-export const fetchSneakers = () => dispatch => SneakerUtil.fetchSneakers()
+export const fetchSneakers = (page) => dispatch => SneakerUtil.fetchSneakers(page)
   .then( sneakers => dispatch(receiveSneakers(sneakers)));
 
 export const fetchSneaker = (id) => dispatch => SneakerUtil.fetchSneaker(id)

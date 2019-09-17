@@ -5,7 +5,8 @@ const errorObject = {
   "Full name can't be blank": "fullName",
   "Email can't be blank": "email",
   "Password is too short (minimum is 6 characters)": "password",
-  "Email or password not correct.": "login"
+  "Email or password not correct.": "login",
+  "Email has already been taken": "email_taken"
 };
 
 const SessionErrorsReducer = (state = {}, action) => {

@@ -21,6 +21,10 @@ class LoginForm extends React.Component {
     window.scrollTo(0, 0);
   }
 
+  componentWillUnmount() {
+    dispatch(this.props.clearErrors());
+  }
+
   handleInput(type) {
     return (e) => {
       this.setState({ [type]: e.target.value });

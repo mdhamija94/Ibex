@@ -17,10 +17,15 @@ class SneakerDetail extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-
     if (prevProps.location.pathname !== this.props.location.pathname) {
       this.setState({
         showListings: true
+      });
+    }
+
+    if (prevProps.location.pathname.includes("listings") && prevProps.location.pathname !== this.props.location.pathname) {
+      this.setState({
+        showListings: false
       });
     }
   }

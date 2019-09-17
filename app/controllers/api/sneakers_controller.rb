@@ -1,4 +1,5 @@
 class Api::SneakersController < ApplicationController
+  # paginates_per 20
 
   def show
     @sneaker = Sneaker.find_by(id: params[:id])
@@ -7,6 +8,10 @@ class Api::SneakersController < ApplicationController
   end
 
   def index
+    # debugger
+    # @sneakers = Sneaker
+    # debugger
+    # @sneakers = Sneaker.page(params[:page])
     @sneakers = Sneaker.all
 
     render :index

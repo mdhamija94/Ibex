@@ -1176,10 +1176,6 @@ end
       main_size_run.each do |size|
         Listing.create({ sneaker_id: sneaker[:id], size: size, price: price_setter(400, 750) })
       end 
-    when "Reese Forbes x Dunk Low Pro SB 'Denim'"
-      [ 10.5 ].each do |size|
-        Listing.create({ sneaker_id: sneaker[:id], size: size, price: price_setter(16825, 16825) })
-      end 
     when "Supreme x Dunk Low Pro SB 'White Cement'"
       [ 10.0 ].each do |size|
         Listing.create({ sneaker_id: sneaker[:id], size: size, price: price_setter(4000, 4000) })
@@ -1188,7 +1184,7 @@ end
       main_size_run.each do |size|
         Listing.create({ sneaker_id: sneaker[:id], size: size, price: price_setter(225, 350) })
       end 
-    when "Supreme x Dunk Low Pro SB 'White Cement'"
+    when "Stussy x Dunk Low Pro SB 'Cherry'"
       [ 10.5 ].each do |size|
         Listing.create({ sneaker_id: sneaker[:id], size: size, price: price_setter(1100, 1100) })
       end 

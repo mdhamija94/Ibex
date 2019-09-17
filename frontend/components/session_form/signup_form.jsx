@@ -21,6 +21,10 @@ class SignupForm extends React.Component {
     window.scrollTo(0, 0);
   }
 
+  componentWillUnmount() {
+    dispatch(this.props.clearErrors());
+  }
+
   handleInput(type) {
     return (e) => {
       this.setState({ [type]: e.target.value });
@@ -75,6 +79,9 @@ class SignupForm extends React.Component {
             />
             <div className="session-errors">
               {this.props.errors.email}
+            </div>
+            <div className="session-errors">
+              {this.props.errors.email_taken}
             </div>
             <label className="session-field-label">
               Password

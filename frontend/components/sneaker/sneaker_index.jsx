@@ -5,10 +5,12 @@ import { Link } from 'react-router-dom';
 class SneakerIndex extends React.Component {
   constructor(props) {
     super(props);
+
+    this.counter = 1;
   }
 
   componentDidMount() {
-    this.props.fetchSneakers();
+    this.props.fetchSneakers(1);
   }
 
   render() {
