@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const SneakerTitlePanel = ({ props }) => {
+const SneakerTitlePanel = ({ props, lowestPrice }) => {
   return (
     <div className="sneaker-title-container">
       <div className="sneaker-title">
@@ -13,7 +13,7 @@ const SneakerTitlePanel = ({ props }) => {
 
       <button className="buy-new-button">
         <Link to={`/sneakers/${ props.sneaker.id}/listings`}>
-          Buy New
+          Buy New - ${lowestPrice}
         </Link>
       </button>
 

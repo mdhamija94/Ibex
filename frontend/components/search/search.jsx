@@ -1,5 +1,6 @@
 import React from 'react';
 import SearchResults from './search_results';
+import { debounce } from 'lodash';
 
 class Search extends React.Component {
   constructor(props) {

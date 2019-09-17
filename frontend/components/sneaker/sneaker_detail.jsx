@@ -25,11 +25,18 @@ class SneakerDetail extends React.Component {
     }
   }
 
-  render() {
-    
+  lowestPrice() {
+    if (this.props.listings.length === 0) return null;
+
+    const sneakerListings = this.props.listings
+    return sneakerListings.reduce((min, nextListing) => nextListing.price < min ? nextListing.price : min, sneakerListings[0].price);
+  }
+
+  render() {    
     let { sneaker } = this.props;
 
     if (!sneaker) return null;
+
     return (
       <section>
         <article className="sneaker-display-container">
@@ -42,7 +49,7 @@ class SneakerDetail extends React.Component {
           </div>
 
           <div className="sneaker-detail-container">
-            { this.state.showListings ? <ListingIndex listings={this.props.listings}/> : < SneakerTitlePanel props={this.props} /> }
+            { this.state.showListings ? <ListingIndex listings={this.props.listings}/> : < SneakerTitlePanel props={this.props} lowestPrice={this.lowestPrice()} /> }
           </div>
         </article>
 
