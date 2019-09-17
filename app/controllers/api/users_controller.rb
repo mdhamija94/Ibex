@@ -11,11 +11,7 @@ class Api::UsersController < ApplicationController
       login!(@user)
       render :show
     else
-      if User.pluck(:email).include?(@user.email)
-        render json: ["Email has already been taken"], status: 422
-      else
-        render json: @user.errors.full_messages, status: 422
-      end
+      render json: @user.errors.full_messages, status: 422
     end
   end
 

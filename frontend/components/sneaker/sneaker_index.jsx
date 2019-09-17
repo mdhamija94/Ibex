@@ -11,6 +11,12 @@ class SneakerIndex extends React.Component {
 
   componentDidMount() {
     this.props.fetchSneakers(1);
+    this.counter++
+  }
+
+  loadMore() {
+    this.props.fetchSneakers(this.counter);
+    this.counter++;
   }
 
   render() {
