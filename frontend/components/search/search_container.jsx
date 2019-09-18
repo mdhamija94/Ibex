@@ -4,7 +4,8 @@ import { searchSneakers, resetSneakers } from '../../actions/sneaker_actions';
 import { debounce } from 'lodash';
 
 const mapStateToProps = (state) => ({
-  sneakers: Object.values(state.entities.sneakers)
+  sneakers: Object.values(state.entities.sneakers),
+  sneakerCount: state.UI.sneakerCount
 });
 
 const mapDispatchToProps = (dispatch) => ({

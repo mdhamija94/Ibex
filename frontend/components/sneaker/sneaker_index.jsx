@@ -6,20 +6,35 @@ class SneakerIndex extends React.Component {
   constructor(props) {
     super(props);
 
-    this.counter = 1;
+    this.page = 1;
+    this.loadMore = this.loadMore.bind(this);
   }
 
   componentDidMount() {
+    window.scrollTo(0, 0)
     this.props.fetchSneakers(1);
-    this.counter++
+    this.page++;
+  }
+
+  componentWillUnmount() {
+    dispatch(this.props.resetSneakers());
   }
 
   loadMore() {
-    this.props.fetchSneakers(this.counter);
-    this.counter++;
+    this.props.fetchSneakers(this.page);
+    this.page++;
   }
 
   render() {
+    const loadDisplay = this.props.sneakers.length < this.props.sneakerCount ? (
+      <button className="load-more" onClick={this.loadMore}>
+        See More
+      </button>
+    ) : (
+      <div>
+      </div>
+    )
+    
     return (
       <div>
         <p className="index-header">Shop All</p>
@@ -35,6 +50,9 @@ class SneakerIndex extends React.Component {
               })
             }
           </ul>
+        </div>
+        <div className="load-more-container">
+            {loadDisplay}
         </div>
       </div>
     )

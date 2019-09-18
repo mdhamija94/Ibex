@@ -10,7 +10,7 @@
 .sneaker-index-container {
   display: flex;
   max-width: 1264px;
-  margin: 0px auto 90px;
+  margin: 0px auto;
 }
 
 .sneaker-items-container {
@@ -23,7 +23,6 @@
 
 .sneaker-item {
   outline: 1px solid black;
-  // background-color: white;
   margin-top: 1px;
   margin-left: 1px;
   width: 315px;
@@ -57,4 +56,25 @@
   text-transform: uppercase;
   font-size: 11px;
   letter-spacing: 1px;
+}
+
+.load-more-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 90px;
+}
+
+.load-more {
+  cursor: pointer;
+  display: flex;
+  text-transform: uppercase;
+  font-family: 'Overpass', sans-serif;
+  font-size: 11px;
+  letter-spacing: 1px;
+  padding: 17.5px 90px;
+  border: 1px solid black;
+}
+
+.load-more:hover {
+  text-decoration: underline;
 }

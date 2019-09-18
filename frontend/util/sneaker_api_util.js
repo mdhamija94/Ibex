@@ -2,6 +2,7 @@ export const fetchSneakers = (page) => {
   return $.ajax({
     method: 'GET',
     url: '/api/sneakers/',
+    remove: false,
     data: { page }
   });
 };

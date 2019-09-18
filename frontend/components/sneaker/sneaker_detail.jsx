@@ -13,7 +13,7 @@ class SneakerDetail extends React.Component {
 
   componentDidMount() {
     this.props.fetchSneaker(this.props.match.params.sneakerId);
-    window.scrollTo(0,0);
+    window.scrollTo(0, 0);
   }
 
   componentDidUpdate(prevProps) {

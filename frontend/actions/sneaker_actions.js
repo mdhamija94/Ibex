@@ -3,11 +3,13 @@ import * as SneakerUtil from '../util/sneaker_api_util';
 export const RECEIVE_SNEAKERS = "RECEIVE_SNEAKERS";
 export const RECEIVE_SNEAKER = "RECEIVE_SNEAKER";
 export const RECEIVE_SEARCH = "RECEIVE_SEARCH";
+// export const RECEIVE_SNEAKER_COUNT = "RECEIVE_SNEAKER_COUNT";
 export const RESET_SNEAKERS = "RESET_SNEAKERS";
 
-const receiveSneakers = (sneakers) => ({
+const receiveSneakers = ({ sneakers, sneaker_count }) => ({
   type: RECEIVE_SNEAKERS,
-  sneakers: sneakers
+  sneakers: sneakers,
+  sneakerCount: sneaker_count
 });
 
 const receiveSneaker = ({ sneaker, listings }) => ({
@@ -26,7 +28,7 @@ export const resetSneakers = () => ({
 })
 
 export const fetchSneakers = (page) => dispatch => SneakerUtil.fetchSneakers(page)
-  .then( sneakers => dispatch(receiveSneakers(sneakers)));
+  .then( payload => dispatch(receiveSneakers(payload)));
 
 export const fetchSneaker = (id) => dispatch => SneakerUtil.fetchSneaker(id)
   .then( payload => dispatch(receiveSneaker(payload)));

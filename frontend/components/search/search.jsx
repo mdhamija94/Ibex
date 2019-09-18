@@ -11,6 +11,11 @@ class Search extends React.Component {
   }
 
   componentDidMount() {
+    window.scrollTo(0, 0);
+    dispatch(this.props.resetSneakers());
+  }
+
+  componentWillUnmount() {
     dispatch(this.props.resetSneakers());
   }
 

@@ -6,11 +6,11 @@ const SearchResults = ({ props, search }) => {
   if (props.sneakers.length) {
     return (
       <div>
-        <p className="search-results-header">Showing {`${props.sneakers.length}`} Results</p>
+        <p className="search-results-header">Showing Results 1-{`${Object.values(props.sneakers[0]).length}`} of {`${props.sneakers[1]}`}</p>
         <div className="sneaker-index-container">
           <ul className="sneaker-items-container">
             {
-              props.sneakers.map((sneaker, idx) => {
+              Object.values(props.sneakers[0]).map((sneaker, idx) => {
                 return (
                   <Link to={`/sneakers/${sneaker.id}`} key={idx} >
                     <SneakerIndexItem sneaker={sneaker} key={idx} />

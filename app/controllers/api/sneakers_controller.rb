@@ -7,10 +7,8 @@ class Api::SneakersController < ApplicationController
   end
 
   def index
-    # debugger
-    # @sneakers = Sneaker
-    @sneakers = Sneaker.all.page(1)
-    # @sneakers = Sneaker.all
+    @sneaker_count = Sneaker.all.count
+    @sneakers = Sneaker.order(:id).page(params[:page])
 
     render :index
   end
@@ -19,12 +17,16 @@ class Api::SneakersController < ApplicationController
     query = params[:query].downcase
 
     if query.present?
-      @sneakers = Sneaker.where('LOWER(name) ~ :query OR LOWER(brand) ~ :query OR LOWER(designer) ~ :query', query: query)
+      query_res = Sneaker.where('LOWER(name) ~ :query OR LOWER(brand) ~ :query OR LOWER(designer) ~ :query', query: query)
+      @sneakers = query_res.order(:id).page(params[:page])
+      @sneaker_count = query_res.count
     else
-      @sneakers = Sneaker.none
+      query_res = Sneaker.none
+      @sneaker_count = query_res.count
     end
+    debugger
     
-    render :index
+    render :search
   end
   
 end

@@ -1,5 +1,6 @@
 .search-container {
   display: flex;
+  // margin-bottom: 90px;
 }
 
 .search-bar-container {
@@ -8,6 +9,10 @@
   margin: auto;
   margin-top: 10px;
   padding: 90px 0px;
+}
+
+.search-results {
+  // margin-bottom: 90px;
 }
 
 .search-bar {
@@ -36,5 +41,5 @@
 }
 
 .no-search-query {
-  height: 90px;
+  margin-bottom: 90px;
 }

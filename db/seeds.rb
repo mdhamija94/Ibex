@@ -605,7 +605,7 @@ end
       size_limiter(full_size_run, 8).each do |size|
         Listing.create({ sneaker_id: sneaker[:id], size: size, price: price_setter(700, 1200) })
       end 
-    when "Yeezy Boost 350 'Moon Rock'"
+    when "Yeezy Boost 350 'Moonrock'"
       size_limiter(full_size_run, 5).each do |size|
         Listing.create({ sneaker_id: sneaker[:id], size: size, price: price_setter(900, 1300) })
       end 
@@ -1979,7 +1979,7 @@ end
       main_size_run.each do |size|
         Listing.create({ sneaker_id: sneaker[:id], size: size, price: price_setter(400, 500) })
       end 
-    when "Air Fear Of God SA 'Light Bone'"
+    when "Air Fear Of God Shootaround 'Light Bone'"
       main_size_run.each do |size|
         Listing.create({ sneaker_id: sneaker[:id], size: size, price: price_setter(375, 475) })
       end 
