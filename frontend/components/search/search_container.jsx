@@ -9,7 +9,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  searchSneakers: debounce((query) => dispatch(searchSneakers(query)), 500),
+  // searchSneakers: debounce((query) => dispatch(searchSneakers(query)), 500),
+  searchSneakers: (query) => dispatch(searchSneakers(query)),
   resetSneakers: () => dispatch(resetSneakers())
 });
 
