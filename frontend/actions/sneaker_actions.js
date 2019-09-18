@@ -18,15 +18,15 @@ const receiveSneaker = ({ sneaker, listings }) => ({
   listings
 });
 
-const receiveSearch = ({ searchResults, sneaker_count}) => ({
+const receiveSearch = ({ sneakers, sneaker_count }) => ({
   type: RECEIVE_SEARCH,
-  searchResults: searchResults,
+  sneakers: sneakers,
   sneakerCount: sneaker_count
 });
 
 export const resetSneakers = () => ({
   type: RESET_SNEAKERS
-})
+});
 
 export const fetchSneakers = (page) => dispatch => SneakerUtil.fetchSneakers(page)
   .then( payload => dispatch(receiveSneakers(payload)));

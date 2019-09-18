@@ -4,7 +4,6 @@ import SearchResults from './search_results';
 class Search extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = { search: '' };
     this.page = 1
     this.loadMore = this.loadMore.bind(this);
@@ -17,18 +16,34 @@ class Search extends React.Component {
     dispatch(this.props.resetSneakers());
   }
 
+  componentDidUpdate(prevState, prevProps, snapshot) {
+    // debugger
+    if (prevProps.search !== this.state.search) {
+      dispatch(this.props.resetSneakers()); 
+      this.page = 1;
+      this.props.searchSneakers(this.state.search, this.page);
+    }
+  }
+
+  // componentWillUpdate(nextProps, nextState, nextContext) {
+  //   if (nextState.search === '') {
+  //     dispatch(this.props.resetSneakers());
+  //   }
+  // }
+
   componentWillUnmount() {
     dispatch(this.props.resetSneakers());
   }
 
   loadMore() {
+    debugger
     this.page++;
     this.props.searchSneakers(this.state.search, this.page);
   }
 
   handleSearch() {
     return (e) => {
-      this.props.searchSneakers( e.target.value, this.page );
+      this.props.searchSneakers( e.target.value, 1 );
       this.setState({ search: e.target.value });
     };
   }
@@ -38,7 +53,21 @@ class Search extends React.Component {
   }
 
   render() {
-    debugger
+    let loadDisplay = this.props.sneakers.length < this.props.sneakerCount ? (
+      <button className="load-more" onClick={this.loadMore}>
+        See More
+      </button>
+    ) : (
+      <div>
+      </div>
+    )
+
+    if (this.props.sneakers.length === 0) {
+      loadDisplay =
+        <div>
+        </div>
+    }
+    
     return (
       <div>
         <section className="search-container">
@@ -49,8 +78,15 @@ class Search extends React.Component {
           </div>
         </section>
         <section className="search-results">
-          <SearchResults props={this.props} search={this.state.search} />
+          <SearchResults 
+            sneakers={this.props.sneakers} 
+            search={this.state.search} 
+            searchResults={this.props.sneakerCount} 
+          />
         </section>
+        <div className="load-more-container">
+          {loadDisplay}
+        </div>
       </div>
     )
   }

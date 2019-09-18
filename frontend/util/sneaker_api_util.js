@@ -14,10 +14,11 @@ export const fetchSneaker = (id) => {
   });
 };
 
-export const searchSneakers = (query) => {
+export const searchSneakers = (query, page) => {
   return $.ajax({
     method: 'GET',
     url: '/api/sneakers/search',
-    data: { query }
+    remove: false,
+    data: { query, page }
   });
 };

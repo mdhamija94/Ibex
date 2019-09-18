@@ -6,6 +6,7 @@ const mapStateToProps = (state, ownProps) => {
   const sneaker = state.entities.sneakers[ownProps.match.params.sneakerId];
   const listings = Object.values(state.entities.listings);
   const showListings = ownProps.location.pathname.includes("listings")
+  debugger
   return {
     sneaker,
     listings,

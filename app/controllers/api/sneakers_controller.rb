@@ -18,13 +18,14 @@ class Api::SneakersController < ApplicationController
 
     if query.present?
       query_res = Sneaker.where('LOWER(name) ~ :query OR LOWER(brand) ~ :query OR LOWER(designer) ~ :query', query: query)
+      @sneaker_count = query_res.count
       @sneakers = query_res.order(:id).page(params[:page])
-      @sneaker_count = query_res.count
     else
-      query_res = Sneaker.none
-      @sneaker_count = query_res.count
+      #query_res = Sneaker.none
+      #@sneaker_count = query_res.count
+      @sneaker_count = 0
+      @sneakers = []
     end
-    debugger
     
     render :search
   end
