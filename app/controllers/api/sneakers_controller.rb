@@ -24,7 +24,6 @@ class Api::SneakersController < ApplicationController
       query_res = Sneaker.none
       @sneaker_count = query_res.count
     end
-    debugger
     
     render :search
   end
