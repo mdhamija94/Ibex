@@ -17,7 +17,8 @@ const SneakersReducer = (state = sneakerDefaultState, action) => {
       const sneaker = action.sneaker;
       return Object.assign({}, state, { [sneaker.id]: sneaker });
     case RECEIVE_SEARCH:
-      return action.searchResults;
+      debugger
+      return Object.assign({}, state, action.searchResults);
     case RESET_SNEAKERS:
       return sneakerDefaultState;
     default:

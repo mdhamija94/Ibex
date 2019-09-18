@@ -6,6 +6,8 @@ class Search extends React.Component {
     super(props);
 
     this.state = { search: '' };
+    this.page = 1
+    this.loadMore = this.loadMore.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -19,9 +21,14 @@ class Search extends React.Component {
     dispatch(this.props.resetSneakers());
   }
 
+  loadMore() {
+    this.page++;
+    this.props.searchSneakers(this.state.search, this.page);
+  }
+
   handleSearch() {
     return (e) => {
-      this.props.searchSneakers( e.target.value );
+      this.props.searchSneakers( e.target.value, this.page );
       this.setState({ search: e.target.value });
     };
   }
@@ -31,6 +38,7 @@ class Search extends React.Component {
   }
 
   render() {
+    debugger
     return (
       <div>
         <section className="search-container">

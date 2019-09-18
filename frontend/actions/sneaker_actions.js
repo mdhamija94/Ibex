@@ -18,9 +18,10 @@ const receiveSneaker = ({ sneaker, listings }) => ({
   listings
 });
 
-const receiveSearch = (searchResults) => ({
+const receiveSearch = ({ searchResults, sneaker_count}) => ({
   type: RECEIVE_SEARCH,
-  searchResults
+  searchResults: searchResults,
+  sneakerCount: sneaker_count
 });
 
 export const resetSneakers = () => ({
@@ -33,5 +34,5 @@ export const fetchSneakers = (page) => dispatch => SneakerUtil.fetchSneakers(pag
 export const fetchSneaker = (id) => dispatch => SneakerUtil.fetchSneaker(id)
   .then( payload => dispatch(receiveSneaker(payload)));
 
-export const searchSneakers = (query) => dispatch => SneakerUtil.searchSneakers(query)
-  .then( searchResults => dispatch(receiveSearch(searchResults)));
+export const searchSneakers = (query, page) => dispatch => SneakerUtil.searchSneakers(query, page)
+  .then( payload => dispatch(receiveSearch(payload)));
