@@ -1,8 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Listing = ({ props, sneakerName, listings }) => {
   const listing = listings[props.match.params.listingId];
-  
+  debugger
   return (
     <div className="listing-container">
       <div className="listing-header-container">
@@ -32,9 +33,11 @@ const Listing = ({ props, sneakerName, listings }) => {
         </div>
       </div>
 
-      <button className="cancel-button">
-        Cancel
-      </button>
+      <Link to={`/sneakers/${listing.sneaker_id}`} >
+        <button className="cancel-button">
+          Cancel
+        </button>
+      </Link>
 
       <button className="atc-button">
         Add to Cart

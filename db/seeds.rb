@@ -1,6 +1,5 @@
 require 'open-uri'
 
-
 Sneaker.destroy_all
 Listing.destroy_all
 

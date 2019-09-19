@@ -8,9 +8,10 @@
   display: flex;
   justify-content: center;
   text-transform: uppercase;
+  margin-top: 25px;
   font-size: 10px;
   letter-spacing: 1.5px;
-  color: #B1B1B1;
+  color: #777777;
 }
 
 #listing-price {
@@ -29,7 +30,7 @@
 .listing-nutritional-fact {
   display: flex;
   justify-content: space-between;
-  padding: 12.5px 0px;
+  padding: 12px 0px;
   border-bottom: 1px solid #B1B1B1;
   font-family: 'Overpass', sans-serif;
   font-size: 10px;
@@ -37,6 +38,7 @@
 }
 
 .listing-nutritional-fact-key {
+  padding: 2px 0px 0px;
   letter-spacing: 1.5px;
   text-transform: uppercase;
 }

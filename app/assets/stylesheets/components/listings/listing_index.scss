@@ -28,6 +28,31 @@
   font-size: 30px;
 }
 
+.close-panel-container {
+  cursor: pointer;
+  display: flex;
+  justify-content: flex-end;
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  width: 35px;
+  height: 35px;
+  border: 1px solid black;
+  text-align: center;
+}
+
+#x {
+  font-size: 20px;
+  font-weight: 300;
+  margin: 0px 12.5px 5px;
+}
+
+.footer-icon-container a i {
+  display: flex;
+  font-size: 20px;
+  padding: 11px;
+}
+
 .listing-index-item {
   width: 90%;
   margin: -1px auto 0px;

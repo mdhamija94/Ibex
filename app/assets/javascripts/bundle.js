@@ -1247,6 +1247,8 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+
 
 
 var Listing = function Listing(_ref) {
@@ -1254,6 +1256,7 @@ var Listing = function Listing(_ref) {
       sneakerName = _ref.sneakerName,
       listings = _ref.listings;
   var listing = listings[props.match.params.listingId];
+  debugger;
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "listing-container"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1288,9 +1291,11 @@ var Listing = function Listing(_ref) {
     className: "listing-nutritional-fact-key"
   }, "Box"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: "listing-nutritional-fact-value"
-  }, "Good Condition"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+  }, "Good Condition"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    to: "/sneakers/".concat(listing.sneaker_id)
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     className: "cancel-button"
-  }, "Cancel"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+  }, "Cancel")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     className: "atc-button"
   }, "Add to Cart"));
 };
@@ -1319,15 +1324,20 @@ var ListingIndex = function ListingIndex(_ref) {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "listing-index-container",
     id: "listing-scrollbar"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    to: "/sneakers/".concat(listings[0].sneaker_id)
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    className: "close-panel-container"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    id: "x"
+  }, "x"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "listing-heading-container"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
     id: "buy-new"
   }, "Buy New"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
     id: "us-sizes"
   }, "US Sizes")), listings.map(function (listing, idx) {
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"] // to={`/sneakers/${listing.sneaker_id}/listings/add?size=${listing.size}`} 
-    , {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
       to: "/sneakers/".concat(listing.sneaker_id, "/listings/").concat(listing.id),
       className: "listing-index-item",
       key: idx
@@ -49490,7 +49500,7 @@ function warning(message) {
 /*!***************************************************************!*\
   !*** ./node_modules/react-router-dom/esm/react-router-dom.js ***!
   \***************************************************************/
-/*! exports provided: BrowserRouter, HashRouter, Link, NavLink, MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext */
+/*! exports provided: MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, withRouter, __RouterContext, BrowserRouter, HashRouter, Link, NavLink */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
