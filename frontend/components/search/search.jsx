@@ -16,7 +16,7 @@ class Search extends React.Component {
     dispatch(this.props.resetSneakers());
   }
 
-  componentDidUpdate(prevProps) {
+  componentDidUpdate(prevState, prevProps) {
     if (prevProps.search !== this.state.search) {
       dispatch(this.props.resetSneakers()); 
       this.page = 1;

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import Nav from './header/nav';
+import NavContainer from './header/nav_container';
 import Footer from './footer/footer';
 import HomeContainer from './home/home_container';
 import LoginFormContainer from './session_form/login_form_container';
@@ -15,7 +15,7 @@ const App = () => (
   <div>
     <main className="main-content-container">
       <header className="header-container">
-        <Nav />
+        <NavContainer />
       </header>
       <Switch>
         <Route path="sneakers/:sneakerId/listings/:listingId" component={ SignupFormContainer }/>
