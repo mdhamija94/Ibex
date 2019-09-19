@@ -12,13 +12,16 @@
 #
 
 class User < ApplicationRecord
-
   validates :full_name, :email, :password_digest, :session_token, presence: true
   validates :email, uniqueness: true
   validates :password, length: { minimum: 6 }, allow_nil: true
   after_initialize :ensure_session_token
 
   attr_reader :password
+
+  has_many :cart_items,
+    foreign_key: :user_id,
+    class_name: 'CartItem'
 
   def ensure_session_token
     self.session_token ||= SecureRandom::urlsafe_base64
@@ -44,5 +47,4 @@ class User < ApplicationRecord
     return nil if user.nil?
     user.is_password?(password) ? user : nil
   end
-
 end

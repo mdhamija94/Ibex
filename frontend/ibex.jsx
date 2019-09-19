@@ -6,6 +6,7 @@ import configureStore from './store/store';
 // Testing Imports
 import * as SessionUtil from './util/session_api_util';
 import * as SneakerUtil from './util/sneaker_api_util';
+import * as CartUtil from './util/cart_api_util';
 import * as SessionAction from './actions/session_actions';
 import * as SneakerAction from './actions/sneaker_actions';
 
@@ -34,6 +35,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // window.fetchSneakers = SneakerUtil.fetchSneakers;
   window.fetchSneakers = SneakerAction.fetchSneakers;
   window.searchSneakers = SneakerAction.searchSneakers;
+
+  window.fetchCart = CartUtil.fetchCart;
   // End Testing
 
   const root = document.getElementById('root');

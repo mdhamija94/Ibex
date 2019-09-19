@@ -505,10 +505,7 @@ var mapStateToProps = function mapStateToProps(state) {
   return {
     currentUser: state.session.id
   };
-}; // const mapDispatchToProps = (dispatch) => ({
-//   logout: () => dispatch(logout())
-// });
-
+};
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, null)(_nav__WEBPACK_IMPORTED_MODULE_1__["default"]));
 
@@ -579,8 +576,7 @@ function (_React$Component) {
         className: "home-signup-button"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         to: "/signup"
-      }, "Sign Up"))); // debugger
-
+      }, "Sign Up")));
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         to: "/sneakers/19"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
@@ -1479,7 +1475,8 @@ function (_React$Component) {
   }, {
     key: "lowestPrice",
     value: function lowestPrice() {
-      if (!this.props.listings) return null;
+      if (!Object.values(this.props.listings).length) return null; // debugger
+
       var sneakerListings = Object.values(this.props.listings);
       return sneakerListings.reduce(function (min, nextListing) {
         return nextListing.price < min ? nextListing.price : min;
@@ -1605,7 +1602,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mapStateToProps = function mapStateToProps(state, ownProps) {
-  var sneaker = state.entities.sneakers[ownProps.match.params.sneakerId];
+  var sneaker = state.entities.sneakers[ownProps.match.params.sneakerId]; // debugger
+
   var listings = state.entities.listings;
   return {
     sneaker: sneaker,
@@ -2090,12 +2088,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _store_store__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./store/store */ "./frontend/store/store.js");
 /* harmony import */ var _util_session_api_util__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./util/session_api_util */ "./frontend/util/session_api_util.js");
 /* harmony import */ var _util_sneaker_api_util__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./util/sneaker_api_util */ "./frontend/util/sneaker_api_util.js");
-/* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./actions/session_actions */ "./frontend/actions/session_actions.js");
-/* harmony import */ var _actions_sneaker_actions__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./actions/sneaker_actions */ "./frontend/actions/sneaker_actions.js");
+/* harmony import */ var _util_cart_api_util__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./util/cart_api_util */ "./frontend/util/cart_api_util.jsx");
+/* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./actions/session_actions */ "./frontend/actions/session_actions.js");
+/* harmony import */ var _actions_sneaker_actions__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./actions/sneaker_actions */ "./frontend/actions/sneaker_actions.js");
 
 
 
  // Testing Imports
+
 
 
 
@@ -2121,11 +2121,12 @@ document.addEventListener("DOMContentLoaded", function () {
   window.dispatch = store.dispatch;
   window.signup = _util_session_api_util__WEBPACK_IMPORTED_MODULE_4__["signup"];
   window.login = _util_session_api_util__WEBPACK_IMPORTED_MODULE_4__["login"];
-  window.logout = _actions_session_actions__WEBPACK_IMPORTED_MODULE_6__["logout"];
+  window.logout = _actions_session_actions__WEBPACK_IMPORTED_MODULE_7__["logout"];
   window.fetchSneaker = _util_sneaker_api_util__WEBPACK_IMPORTED_MODULE_5__["fetchSneaker"]; // window.fetchSneakers = SneakerUtil.fetchSneakers;
 
-  window.fetchSneakers = _actions_sneaker_actions__WEBPACK_IMPORTED_MODULE_7__["fetchSneakers"];
-  window.searchSneakers = _actions_sneaker_actions__WEBPACK_IMPORTED_MODULE_7__["searchSneakers"]; // End Testing
+  window.fetchSneakers = _actions_sneaker_actions__WEBPACK_IMPORTED_MODULE_8__["fetchSneakers"];
+  window.searchSneakers = _actions_sneaker_actions__WEBPACK_IMPORTED_MODULE_8__["searchSneakers"];
+  window.fetchCart = _util_cart_api_util__WEBPACK_IMPORTED_MODULE_6__["fetchCart"]; // End Testing
 
   var root = document.getElementById('root');
   react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_root__WEBPACK_IMPORTED_MODULE_2__["default"], {
@@ -2429,6 +2430,25 @@ var configureStore = function configureStore() {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (configureStore);
+
+/***/ }),
+
+/***/ "./frontend/util/cart_api_util.jsx":
+/*!*****************************************!*\
+  !*** ./frontend/util/cart_api_util.jsx ***!
+  \*****************************************/
+/*! exports provided: fetchCart */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchCart", function() { return fetchCart; });
+var fetchCart = function fetchCart() {
+  return $.ajax({
+    method: 'GET',
+    url: '/api/cart_items'
+  });
+};
 
 /***/ }),
 

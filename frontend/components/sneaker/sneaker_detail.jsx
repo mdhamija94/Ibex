@@ -21,8 +21,8 @@ class SneakerDetail extends React.Component {
   }
 
   lowestPrice() {
-    if (!this.props.listings) return null;
-
+    if (!Object.values(this.props.listings).length) return null;
+    // debugger
     const sneakerListings = Object.values(this.props.listings);
     return sneakerListings.reduce((min, nextListing) => nextListing.price < min ? nextListing.price : min, sneakerListings[0].price);
   }

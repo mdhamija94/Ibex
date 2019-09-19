@@ -10,6 +10,6 @@ Rails.application.routes.draw do
       resources :listings, only: [:show, :index]
       get 'search', on: :collection
     end
-    # get 'sneakers/search', to: 'sneakers#search'
+    resources :cart_items, only: [:index, :create, :destroy]
   end
 end

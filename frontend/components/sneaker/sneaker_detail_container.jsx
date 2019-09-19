@@ -4,6 +4,7 @@ import { fetchSneaker } from '../../actions/sneaker_actions';
 
 const mapStateToProps = (state, ownProps) => {
   const sneaker = state.entities.sneakers[ownProps.match.params.sneakerId];
+  // debugger
   const listings = state.entities.listings;
   
   return {

@@ -7,7 +7,7 @@ class Api::SneakersController < ApplicationController
   end
 
   def index
-    @sneaker_count = Sneaker.all.count
+    @sneaker_count = Sneaker.count
     @sneakers = Sneaker.order(:id).page(params[:page])
 
     render :index
