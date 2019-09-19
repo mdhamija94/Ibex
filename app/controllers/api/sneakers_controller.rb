@@ -25,7 +25,7 @@ class Api::SneakersController < ApplicationController
       @sneakers = []
     end
     
-    render :search
+    render :index
   end
   
 end

@@ -6,8 +6,9 @@ Listing.destroy_all
 Sneaker.connection.execute('ALTER SEQUENCE sneakers_id_seq RESTART WITH 1')
 
 # Main arrays used to attribute sizes to listings in Listing Factory Methods
-main_size_run = [ 8.0, 8.5, 9.0, 9.5, 10.0, 10.5, 11.0, 11.5, 12.0 ]
+main_size_run = [ 7.0, 7.5, 8.0, 8.5, 9.0, 9.5, 10.0, 10.5, 11.0, 11.5, 12.0, 12.5, 13.0, 14.0 ]
 full_size_run = [ 4.0, 5.0, 6.0, 7.0, 7.5, 8.0, 8.5, 9.0, 9.5, 10.0, 10.5, 11.0, 11.5, 12.0, 13.0, 14.0 ]
+yeezy_size_run = [ 4.0, 4.5, 5.0, 5.5, 6.0, 6.5, 7.0, 7.5, 8.0, 8.5, 9.0, 9.5, 10.0, 10.5, 11.0, 11.5, 12.0, 13.0, 14.0, 15.0, 16.0 ]
 
 # Returns an array of n random sizes that can be used to generate Listings
 def size_limiter(sizes, n)
@@ -613,67 +614,67 @@ end
         Listing.create({ sneaker_id: sneaker[:id], size: size, price: price_setter(800, 1100) })
       end 
     when "Yeezy Boost 350 V2 'Beluga'"
-      size_limiter(full_size_run, 10).each do |size|
+      yeezy_size_run.each do |size|
         Listing.create({ sneaker_id: sneaker[:id], size: size, price: price_setter(650, 1100) })
       end 
     when "Yeezy Boost 350 V2 'Green'"
-      size_limiter(full_size_run, 12).each do |size|
+      yeezy_size_run.each do |size|
         Listing.create({ sneaker_id: sneaker[:id], size: size, price: price_setter(500, 800) })
       end 
     when "Yeezy Boost 350 V2 'Red'"
-      size_limiter(full_size_run, 7).each do |size|
+      yeezy_size_run.each do |size|
         Listing.create({ sneaker_id: sneaker[:id], size: size, price: price_setter(700, 1100) })
       end 
     when "Yeezy Boost 350 V2 'Copper'"
-      size_limiter(full_size_run, 10).each do |size|
+      yeezy_size_run.each do |size|
         Listing.create({ sneaker_id: sneaker[:id], size: size, price: price_setter(550, 850) })
       end 
     when "Yeezy Boost 350 V2 'Oreo'"
-      size_limiter(full_size_run, 14).each do |size|
+      yeezy_size_run.each do |size|
         Listing.create({ sneaker_id: sneaker[:id], size: size, price: price_setter(700, 1000) })
       end 
     when "Yeezy Boost 350 V2 'Bred'"
-      size_limiter(full_size_run, 9).each do |size|
+      yeezy_size_run.each do |size|
         Listing.create({ sneaker_id: sneaker[:id], size: size, price: price_setter(650, 950) })
       end 
     when "Yeezy Boost 350 V2 'Cream'"
-      full_size_run.each do |size|
+      yeezy_size_run.each do |size|
         Listing.create({ sneaker_id: sneaker[:id], size: size, price: price_setter(275, 350) })
       end 
     when "Yeezy Boost 350 V2 'Zebra'"
-      full_size_run.each do |size|
+      yeezy_size_run.each do |size|
         Listing.create({ sneaker_id: sneaker[:id], size: size, price: price_setter(375, 500) })
       end 
     when "Yeezy Boost 350 V2 'Blue Tint'"
-      full_size_run.each do |size|
+      yeezy_size_run.each do |size|
         Listing.create({ sneaker_id: sneaker[:id], size: size, price: price_setter(375, 500) })
       end 
     when "Yeezy Boost 350 V2 'Beluga 2.0'"
-      full_size_run.each do |size|
+      yeezy_size_run.each do |size|
         Listing.create({ sneaker_id: sneaker[:id], size: size, price: price_setter(400, 600) })
       end 
     when "Yeezy Boost 350 V2 'Semi-Frozen Yellow'"
-      full_size_run.each do |size|
+      yeezy_size_run.each do |size|
         Listing.create({ sneaker_id: sneaker[:id], size: size, price: price_setter(250, 400) })
       end 
     when "Yeezy Boost 350 V2 'Butter'"
-      full_size_run.each do |size|
+      yeezy_size_run.each do |size|
         Listing.create({ sneaker_id: sneaker[:id], size: size, price: price_setter(250, 375) })
       end 
     when "Yeezy Boost 350 V2 'Sesame'"
-      full_size_run.each do |size|
+      yeezy_size_run.each do |size|
         Listing.create({ sneaker_id: sneaker[:id], size: size, price: price_setter(300, 425) })
       end 
     when "Yeezy Boost 350 V2 'Static Non-Reflective'"
-      full_size_run.each do |size|
+      yeezy_size_run.each do |size|
         Listing.create({ sneaker_id: sneaker[:id], size: size, price: price_setter(375, 600) })
       end 
     when "Yeezy Boost 350 V2 'Black Non-Reflective'"
-      full_size_run.each do |size|
+      yeezy_size_run.each do |size|
         Listing.create({ sneaker_id: sneaker[:id], size: size, price: price_setter(400, 550) })
       end 
     when "Yeezy Boost 350 V2 'Glow'"
-      full_size_run.each do |size|
+      yeezy_size_run.each do |size|
         Listing.create({ sneaker_id: sneaker[:id], size: size, price: price_setter(600, 800) })
       end
     end
@@ -741,7 +742,7 @@ end
         Listing.create({ sneaker_id: sneaker[:id], size: size, price: price_setter(1200, 1900) })
       end 
     when "Yeezy Boost 750 'Triple Black'",
-      size_limiter(main_size_run, 6).each do |size|
+      [ 8.0, 9.0, 10.0, 11.0, 12.0, 14.0 ].each do |size|
         Listing.create({ sneaker_id: sneaker[:id], size: size, price: price_setter(900, 1400) })
       end 
     when "Yeezy Boost 750 'Chocolate'"
@@ -924,27 +925,27 @@ end
   air_yeezys.each do |sneaker|
     case sneaker[:name]
     when "Air Yeezy 'Zen'"
-      main_size_run.each do |size|
+      [ 8.0, 8.5, 9.0, 9.5, 10.0, 10.5, 11.0, 11.5, 12.0, 13.0 ].each do |size|
         Listing.create({ sneaker_id: sneaker[:id], size: size, price: price_setter(3000, 4250) })
       end 
     when "Air Yeezy 'Blink'"
-      main_size_run.each do |size|
+      [ 8.0, 8.5, 9.0, 9.5, 10.0, 10.5, 11.0, 11.5, 12.0, 13.0 ].each do |size|
         Listing.create({ sneaker_id: sneaker[:id], size: size, price: price_setter(4500, 5500) })
       end 
     when "Air Yeezy 'Net'"
-      main_size_run.each do |size|
+      [ 8.0, 8.5, 9.0, 9.5, 10.0, 10.5, 11.0, 11.5, 12.0, 13.0 ].each do |size|
         Listing.create({ sneaker_id: sneaker[:id], size: size, price: price_setter(3500, 4750) })
       end 
     when "Air Yeezy 2 NRG 'Solar Red'"
-      main_size_run.each do |size|
+      [ 8.0, 8.5, 9.0, 9.5, 10.0, 10.5, 11.0, 11.5, 12.0, 13.0 ].each do |size|
         Listing.create({ sneaker_id: sneaker[:id], size: size, price: price_setter(4750, 6000) })
       end 
     when "Air Yeezy 2 NRG 'Pure Platinum'"
-      main_size_run.each do |size|
+      [ 8.0, 8.5, 9.0, 9.5, 10.0, 10.5, 11.0, 11.5, 12.0, 13.0 ].each do |size|
         Listing.create({ sneaker_id: sneaker[:id], size: size, price: price_setter(4250, 5500) })
       end 
     when "Air Yeezy 2 SP 'Red October'"
-      main_size_run.each do |size|
+      [ 8.0, 8.5, 9.0, 9.5, 10.0, 10.5, 11.0, 11.5, 12.0, 13.0 ].each do |size|
         Listing.create({ sneaker_id: sneaker[:id], size: size, price: price_setter(7000, 10000) })
       end
     end

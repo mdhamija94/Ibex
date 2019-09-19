@@ -1253,10 +1253,9 @@ __webpack_require__.r(__webpack_exports__);
 
 var Listing = function Listing(_ref) {
   var props = _ref.props,
-      sneakerName = _ref.sneakerName,
+      sneaker = _ref.sneaker,
       listings = _ref.listings;
   var listing = listings[props.match.params.listingId];
-  debugger;
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "listing-container"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1273,7 +1272,7 @@ var Listing = function Listing(_ref) {
     className: "listing-nutritional-fact-key"
   }, "Sneaker"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: "listing-nutritional-fact-value"
-  }, sneakerName)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, sneaker.name)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "listing-nutritional-fact"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     className: "listing-nutritional-fact-key"
@@ -1398,15 +1397,9 @@ function (_React$Component) {
   _inherits(SneakerDetail, _React$Component);
 
   function SneakerDetail(props) {
-    var _this;
-
     _classCallCheck(this, SneakerDetail);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(SneakerDetail).call(this, props));
-    _this.state = {
-      showListings: _this.props.showListings
-    };
-    return _this;
+    return _possibleConstructorReturn(this, _getPrototypeOf(SneakerDetail).call(this, props));
   }
 
   _createClass(SneakerDetail, [{
@@ -1418,32 +1411,8 @@ function (_React$Component) {
   }, {
     key: "componentDidUpdate",
     value: function componentDidUpdate(prevProps) {
-      var _this2 = this;
-
       if (prevProps.location.pathname !== this.props.location.pathname) {
-        this.setState({
-          showListings: 2
-        }, function () {
-          return _this2.props.fetchSneaker(_this2.props.match.params.sneakerId);
-        });
-      }
-
-      if (this.props.location.pathname.includes("listings") && prevProps.location.pathname !== this.props.location.pathname) {
-        this.setState({
-          showListings: 1
-        });
-      }
-
-      if (prevProps.location.pathname.includes("listings") && prevProps.location.pathname !== this.props.location.pathname) {
-        this.setState({
-          showListings: 2
-        });
-      }
-
-      if (this.props.location.pathname.includes("listings/") && prevProps.location.pathname !== this.props.location.pathname) {
-        this.setState({
-          showListings: 3
-        });
+        this.props.fetchSneaker(this.props.match.params.sneakerId);
       }
     }
   }, {
@@ -1458,7 +1427,7 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var _this3 = this;
+      var _this = this;
 
       var sneaker = this.props.sneaker;
       if (!sneaker) return null;
@@ -1480,8 +1449,8 @@ function (_React$Component) {
         render: function render(props) {
           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_listing_listing__WEBPACK_IMPORTED_MODULE_4__["default"], {
             props: props,
-            sneakerName: _this3.props.sneaker.name,
-            listings: _this3.props.listings
+            sneaker: _this.props.sneaker,
+            listings: _this.props.listings
           });
         }
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
@@ -1495,8 +1464,8 @@ function (_React$Component) {
         path: "/sneakers/:sneakerId",
         render: function render() {
           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_sneaker_title_panel__WEBPACK_IMPORTED_MODULE_2__["default"], {
-            props: _this3.props,
-            lowestPrice: _this3.lowestPrice()
+            props: _this.props,
+            lowestPrice: _this.lowestPrice()
           });
         }
       })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("article", {
@@ -1576,18 +1545,10 @@ __webpack_require__.r(__webpack_exports__);
 
 var mapStateToProps = function mapStateToProps(state, ownProps) {
   var sneaker = state.entities.sneakers[ownProps.match.params.sneakerId];
-  var listings = state.entities.listings; // const showListings = ownProps.location.pathname.includes("listings")
-
-  var showListings;
-
-  if (ownProps.location.pathname.includes("listings")) {
-    showListings = 1;
-  }
-
+  var listings = state.entities.listings;
   return {
     sneaker: sneaker,
-    listings: listings,
-    showListings: showListings
+    listings: listings
   };
 };
 
