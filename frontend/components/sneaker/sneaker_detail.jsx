@@ -1,7 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import SneakerTitlePanel from './sneaker_title_panel';
 import ListingIndex from './listing/listing_index';
+import Listing from './listing/listing';
 
 class SneakerDetail extends React.Component {
   constructor(props) {
@@ -17,30 +18,35 @@ class SneakerDetail extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    // debugger
     if (prevProps.location.pathname !== this.props.location.pathname) {
       this.setState({
-        showListings: false
+        showListings: 2
       }, () => this.props.fetchSneaker(this.props.match.params.sneakerId));
     }
 
     if (this.props.location.pathname.includes("listings") && prevProps.location.pathname !== this.props.location.pathname) {
       this.setState({
-        showListings: true
+        showListings: 1
       });
     }
 
     if (prevProps.location.pathname.includes("listings") && prevProps.location.pathname !== this.props.location.pathname) {
       this.setState({
-        showListings: false
+        showListings: 2
+      });
+    }
+
+    if (this.props.location.pathname.includes("listings/") && prevProps.location.pathname !== this.props.location.pathname) {
+      this.setState({
+        showListings: 3
       });
     }
   }
 
   lowestPrice() {
-    if (this.props.listings.length === 0) return null;
+    if (!this.props.listings) return null;
 
-    const sneakerListings = this.props.listings
+    const sneakerListings = Object.values(this.props.listings)
     return sneakerListings.reduce((min, nextListing) => nextListing.price < min ? nextListing.price : min, sneakerListings[0].price);
   }
 
@@ -48,6 +54,8 @@ class SneakerDetail extends React.Component {
     let { sneaker } = this.props;
 
     if (!sneaker) return null;
+
+    let listingsArray = Object.values(this.props.listings)
 
     return (
       <section>
@@ -61,7 +69,29 @@ class SneakerDetail extends React.Component {
           </div>
 
           <div className="sneaker-detail-container">
-            { this.state.showListings ? <ListingIndex listings={this.props.listings}/> : < SneakerTitlePanel props={this.props} lowestPrice={this.lowestPrice()} /> }
+            <Switch>
+              <Route 
+                path="/sneakers/:sneakerId/listings/:listingId" 
+                render={(props) => <Listing 
+                  props={props} 
+                  sneakerName={this.props.sneaker.name} 
+                  listings={this.props.listings}
+                />} 
+              />
+              <Route 
+                path="/sneakers/:sneakerId/listings" 
+                render={() => <ListingIndex 
+                  listings={listingsArray} 
+                />} 
+              />
+              <Route 
+                path="/sneakers/:sneakerId" 
+                render={() => <SneakerTitlePanel 
+                  props={this.props} 
+                  lowestPrice={this.lowestPrice()} 
+                />}  
+              />
+            </Switch>
           </div>
         </article>
 

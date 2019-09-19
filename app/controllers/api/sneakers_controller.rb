@@ -21,8 +21,6 @@ class Api::SneakersController < ApplicationController
       @sneaker_count = query_res.count
       @sneakers = query_res.order(:id).page(params[:page])
     else
-      #query_res = Sneaker.none
-      #@sneaker_count = query_res.count
       @sneaker_count = 0
       @sneakers = []
     end

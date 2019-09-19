@@ -17,7 +17,6 @@ class Search extends React.Component {
   }
 
   componentDidUpdate(prevState, prevProps, snapshot) {
-    // debugger
     if (prevProps.search !== this.state.search) {
       dispatch(this.props.resetSneakers()); 
       this.page = 1;
@@ -25,18 +24,11 @@ class Search extends React.Component {
     }
   }
 
-  // componentWillUpdate(nextProps, nextState, nextContext) {
-  //   if (nextState.search === '') {
-  //     dispatch(this.props.resetSneakers());
-  //   }
-  // }
-
   componentWillUnmount() {
     dispatch(this.props.resetSneakers());
   }
 
   loadMore() {
-    debugger
     this.page++;
     this.props.searchSneakers(this.state.search, this.page);
   }
@@ -58,14 +50,11 @@ class Search extends React.Component {
         See More
       </button>
     ) : (
-      <div>
-      </div>
+      <div></div>
     )
 
     if (this.props.sneakers.length === 0) {
-      loadDisplay =
-        <div>
-        </div>
+      loadDisplay = <div></div>
     }
     
     return (

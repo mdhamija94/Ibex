@@ -18,6 +18,7 @@ const App = () => (
         <Nav />
       </header>
       <Switch>
+        <Route path="sneakers/:sneakerId/listings/:listingId" component={ SignupFormContainer }/>
         <Route path="/sneakers/:sneakerId" component={ SneakerDetailContainer } />
         <Route path="/sneakers" component={ SneakerIndexContainer } />
         <Route path="/search" component={ SearchContainer } />

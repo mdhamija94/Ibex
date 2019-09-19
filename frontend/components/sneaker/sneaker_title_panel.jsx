@@ -11,11 +11,11 @@ const SneakerTitlePanel = ({ props, lowestPrice }) => {
         SKU: { props.sneaker.sku}
       </div>
 
-      <button className="buy-new-button">
-        <Link to={`/sneakers/${ props.sneaker.id}/listings`}>
-          Buy New - ${lowestPrice}
-        </Link>
-      </button>
+      <Link to={`/sneakers/${ props.sneaker.id}/listings`}>
+        <button className="buy-new-button">
+            Buy New - ${lowestPrice}
+        </button>
+      </Link>
 
       <button className="buy-used-button">
         Buy Used - Sold Out

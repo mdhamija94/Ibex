@@ -30,7 +30,7 @@ const SearchResults = ({ sneakers, search, searchResults }) => {
     )
   } else {
     return (
-      <div className="no-search-query"></div>
+      <div></div>
     )
   }
 };

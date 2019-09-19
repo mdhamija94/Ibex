@@ -4,9 +4,13 @@ import { fetchSneaker } from '../../actions/sneaker_actions';
 
 const mapStateToProps = (state, ownProps) => {
   const sneaker = state.entities.sneakers[ownProps.match.params.sneakerId];
-  const listings = Object.values(state.entities.listings);
-  const showListings = ownProps.location.pathname.includes("listings")
-  debugger
+  const listings = state.entities.listings;
+  // const showListings = ownProps.location.pathname.includes("listings")
+  let showListings;
+  if (ownProps.location.pathname.includes("listings")) {
+    showListings = 1
+  }
+
   return {
     sneaker,
     listings,

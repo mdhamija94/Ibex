@@ -11,16 +11,21 @@ const ListingIndex = ({ listings }) => {
       {
         listings.map((listing, idx) => {
           return (
-              <Link to={`/sneakers/${listing.sneaker_id}/listings/add?size=${listing.size}`} className="listing-index-item">
-                <div className="listing-size">
-                  <span>{listing.size}M</span>
-                </div>
-                <div className="listing-price">
-                  <span>${listing.price}</span>
-                </div>
-              </Link>
-            )
-          })
+            <Link 
+              // to={`/sneakers/${listing.sneaker_id}/listings/add?size=${listing.size}`} 
+              to={`/sneakers/${listing.sneaker_id}/listings/${listing.id}`}
+              className="listing-index-item"
+              key={idx}
+            >
+              <div className="listing-size">
+                <span>{listing.size}M</span>
+              </div>
+              <div className="listing-price">
+                <span>${listing.price}</span>
+              </div>
+            </Link>
+          )
+        })
       }
     </div>
   )
