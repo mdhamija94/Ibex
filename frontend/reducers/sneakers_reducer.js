@@ -4,6 +4,7 @@ import {
   RECEIVE_SEARCH,
   RESET_SNEAKERS
 } from '../actions/sneaker_actions';
+// import { RECEIVE_CART } from '../actions/cart_actions';
 
 const sneakerDefaultState = {}
 
@@ -18,6 +19,8 @@ const SneakersReducer = (state = sneakerDefaultState, action) => {
       return Object.assign({}, state, { [sneaker.id]: sneaker });
     case RECEIVE_SEARCH:
       return Object.assign({}, state, action.sneakers);
+    // case RECEIVE_CART:
+    //   return Object.assign({}, state, action.sneakers);
     case RESET_SNEAKERS:
       return sneakerDefaultState;
     default:

@@ -1,8 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { addToCart } from '../../../util/cart_api_util';
 
-const Listing = ({ props, sneaker, listings }) => {
+const Listing = ({ props, sneaker, listings, currentUser }) => {
   const listing = listings[props.match.params.listingId];
+  const cartItem = {
+    user_id: currentUser,
+    listing_id: listing.id
+  }
 
   return (
     <div className="listing-container">
@@ -40,9 +45,11 @@ const Listing = ({ props, sneaker, listings }) => {
         </button>
       </Link>
 
-      <button className="atc-button">
-        Add to Cart
-      </button>
+      <Link to="/cart">
+        <button className="atc-button" onClick={addToCart(cartItem)}>
+          Add to Cart
+        </button>
+      </Link>
     </div>
   )
 };

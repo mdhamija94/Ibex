@@ -6,7 +6,7 @@ class Nav extends React.Component {
     let cartDisplay = this.props.currentUser ? (
       <li>
         <a href="#">
-          <span className="nav-links"><i className="fas fa-shopping-cart"></i></span>
+          <span className="nav-links"><Link to="/cart"><i className="fas fa-shopping-cart"></i></Link></span>
         </a>
       </li>
     ) : (

@@ -8,6 +8,7 @@ import SignupFormContainer from './session_form/signup_form_container';
 import SneakerIndexContainer from './sneaker/sneaker_index_container';
 import SneakerDetailContainer from './sneaker/sneaker_detail_container';
 import SearchContainer from './search/search_container';
+import CartItemsIndexContainer from './cart_items/cart_items_index_container';
 import Styles from './styles/styles';
 import AuthRoute from '../util/route_util';
 
@@ -22,6 +23,7 @@ const App = () => (
         <Route path="/sneakers/:sneakerId" component={ SneakerDetailContainer } />
         <Route path="/sneakers" component={ SneakerIndexContainer } />
         <Route path="/search" component={ SearchContainer } />
+        <Route path="/cart" component={ CartItemsIndexContainer } />
         <Route path="/styles" component={ Styles } />
         <AuthRoute path="/login" component={ LoginFormContainer } />
         <AuthRoute path="/signup" component={ SignupFormContainer } />

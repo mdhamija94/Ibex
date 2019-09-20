@@ -37,6 +37,8 @@ document.addEventListener("DOMContentLoaded", () => {
   window.searchSneakers = SneakerAction.searchSneakers;
 
   window.fetchCart = CartUtil.fetchCart;
+  window.addToCart = CartUtil.addToCart;
+  window.removeFromCart = CartUtil.removeFromCart;
   // End Testing
 
   const root = document.getElementById('root');

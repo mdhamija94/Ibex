@@ -22,7 +22,7 @@ class SneakerDetail extends React.Component {
 
   lowestPrice() {
     if (!Object.values(this.props.listings).length) return null;
-    // debugger
+
     const sneakerListings = Object.values(this.props.listings);
     return sneakerListings.reduce((min, nextListing) => nextListing.price < min ? nextListing.price : min, sneakerListings[0].price);
   }
@@ -49,7 +49,7 @@ class SneakerDetail extends React.Component {
             <Switch>
               <Route 
                 path="/sneakers/:sneakerId/listings/:listingId" 
-                render={(props) => <Listing props={props} sneaker={this.props.sneaker} listings={this.props.listings} />} 
+                render={(props) => <Listing props={props} sneaker={this.props.sneaker} listings={this.props.listings} currentUser={this.props.currentUser} />} 
               />
               <Route 
                 path="/sneakers/:sneakerId/listings" 

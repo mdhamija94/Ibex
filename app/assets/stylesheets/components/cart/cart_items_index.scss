@@ -1,0 +1,143 @@
+.cart-container {
+  max-width: 1260px;
+  margin: 0px auto 90px;
+  display: flex;
+  border: 1px solid black;
+  height: 660px;
+  font-family: 'Overpass', sans-serif;
+}
+
+.cart-items-index-container {
+  width: 845px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+}
+
+.cart-header {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  font-family: 'Source Serif Pro', serif;
+  font-size: 30px;
+  padding: 10px 0px 80px;
+}
+
+.cart-subheader {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  padding: 80px 0px 0px;
+  font-family: 'Overpass', sans-serif;
+  text-transform: uppercase;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  color: #777777;
+}
+
+.cart-items-container {
+  width: 90%;
+  margin: 0px auto 50px;
+  border-top: 1px solid #B1B1B1;
+}
+
+.cart-item-container {
+  border-bottom: 1px solid #B1B1B1;
+  display: flex;
+  padding: 20px;
+}
+
+.cart-item-image-container {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.cart-item-image {
+  margin: auto -30px;
+  width: 220px;
+  height: 145px;
+}
+
+.cart-item-info-container {
+  text-align: right;
+  justify-content: right;
+  width: 100%;
+}
+
+.cart-item-title {
+  font-family: 'Source Serif Pro', serif;
+}
+
+.cart-item-subtitle {
+  padding-top: 7.5px;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.remove-item-button {
+  cursor: pointer;
+  margin-top: 30px;
+  font-family: 'Overpass', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-size: 11px;
+  color: #777777;
+}
+
+.remove-item-button:hover, .cart-item-title:hover {
+  text-decoration: underline;
+}
+
+.payment-container {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  width: 415px;
+  border-left: 1px solid black;
+}
+
+.payment-header {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  font-family: 'Source Serif Pro', serif;
+  font-size: 30px;
+  padding: 107px 0px 80px;
+}
+
+.order-total-container {
+  width: 85%;
+  margin: 0px auto 90px;
+  border-top: 1px solid #B1B1B1;
+}
+
+.order-total-fact {
+  display: flex;
+  justify-content: space-between;
+  padding: 12.5px 0px;
+  border-bottom: 1px solid #B1B1B1;
+  font-family: 'Overpass', sans-serif;
+  font-size: 11px;
+  // text-transform: uppercase;
+  // letter-spacing: 1.5px;
+  font-weight: 900;
+  color: black;
+}
+
+.order-total-key {
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.order-total-value {
+  letter-spacing: 0.5px;
+}
+
+#cc {
+  margin-top: -5px;
+  font-size: 14px;
+}
