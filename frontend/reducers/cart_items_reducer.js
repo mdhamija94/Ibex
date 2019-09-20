@@ -7,7 +7,11 @@ const CartItemsReducer = (state = cartItemsDefaultState, action) => {
 
   switch (action.type) {
     case RECEIVE_CART:
-      return action.cartItems
+      if (!action.cartItems) {
+        return {};
+      } else {
+        return action.cartItems;
+      };
     case CREATE_CART_ITEM:
       return Object.assign({}, state, action.cartItem);
     case DELETE_CART_ITEM: 

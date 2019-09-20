@@ -4,6 +4,9 @@ import { Link } from 'react-router-dom';
 class Home extends React.Component {
   componentDidMount() {
     window.scrollTo(0, 0);
+    if (this.props.currentUser) {
+      this.props.fetchCart()
+    };
   }
 
   render() {

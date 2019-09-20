@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-// import { addToCart } from '../../../util/cart_api_util';
 
 const Listing = ({ props, sneaker, listings, currentUser, addToCart }) => {
   const listing = listings[props.match.params.listingId];
