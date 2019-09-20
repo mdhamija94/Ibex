@@ -4,10 +4,25 @@ import { addToCart } from '../../../util/cart_api_util';
 
 const Listing = ({ props, sneaker, listings, currentUser }) => {
   const listing = listings[props.match.params.listingId];
+
   const cartItem = {
     user_id: currentUser,
     listing_id: listing.id
   }
+
+  const buttonDisplay = currentUser ? (
+    <Link to="/cart">
+      <button className="atc-button" onClick={addToCart(cartItem)}>
+        Add to Cart
+        </button>
+    </Link>
+  ) : (
+    <Link to="/login">
+      <button className="atc-button">
+        Log In to Purchase
+      </button>
+    </Link>
+  )
 
   return (
     <div className="listing-container">
@@ -45,11 +60,7 @@ const Listing = ({ props, sneaker, listings, currentUser }) => {
         </button>
       </Link>
 
-      <Link to="/cart">
-        <button className="atc-button" onClick={addToCart(cartItem)}>
-          Add to Cart
-        </button>
-      </Link>
+      {buttonDisplay}
     </div>
   )
 };

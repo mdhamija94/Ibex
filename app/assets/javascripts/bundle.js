@@ -90,16 +90,22 @@
 /*!******************************************!*\
   !*** ./frontend/actions/cart_actions.js ***!
   \******************************************/
-/*! exports provided: RECEIVE_CART, fetchCart */
+/*! exports provided: RECEIVE_CART, DELETE_CART_ITEM, CLEAR_CART_ITEMS, clearCartItems, fetchCart, removeFromCart */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_CART", function() { return RECEIVE_CART; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DELETE_CART_ITEM", function() { return DELETE_CART_ITEM; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CLEAR_CART_ITEMS", function() { return CLEAR_CART_ITEMS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "clearCartItems", function() { return clearCartItems; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchCart", function() { return fetchCart; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "removeFromCart", function() { return removeFromCart; });
 /* harmony import */ var _util_cart_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/cart_api_util */ "./frontend/util/cart_api_util.jsx");
 
 var RECEIVE_CART = "RECEIVE_CART";
+var DELETE_CART_ITEM = "DELETE_CART_ITEM";
+var CLEAR_CART_ITEMS = "CLEAR_CART_ITEMS";
 
 var receiveCart = function receiveCart(_ref) {
   var cart_items = _ref.cart_items,
@@ -113,11 +119,28 @@ var receiveCart = function receiveCart(_ref) {
   };
 };
 
+var deleteCartItem = function deleteCartItem(id) {
+  return {
+    type: DELETE_CART_ITEM,
+    cartItemId: id
+  };
+};
+
+var clearCartItems = function clearCartItems() {
+  return {
+    type: CLEAR_CART_ITEMS
+  };
+};
 var fetchCart = function fetchCart() {
   return function (dispatch) {
     return _util_cart_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchCart"]().then(function (payload) {
       return dispatch(receiveCart(payload));
     });
+  };
+};
+var removeFromCart = function removeFromCart(id) {
+  return function (dispatch) {
+    return _util_cart_api_util__WEBPACK_IMPORTED_MODULE_0__["removeFromCart"](id).then(dispatch(deleteCartItem(id)));
   };
 };
 
@@ -395,7 +418,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var _util_cart_api_util__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../util/cart_api_util */ "./frontend/util/cart_api_util.jsx");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -417,7 +439,6 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
-
 var CartItem =
 /*#__PURE__*/
 function (_React$Component) {
@@ -435,9 +456,8 @@ function (_React$Component) {
 
   _createClass(CartItem, [{
     key: "handleClick",
-    value: function handleClick(e) {
-      e.stopPropagation();
-      Object(_util_cart_api_util__WEBPACK_IMPORTED_MODULE_2__["removeFromCart"])(this.props.cartItem.id);
+    value: function handleClick() {
+      this.props.removeFromCart(this.props.cartItem.id);
     }
   }, {
     key: "render",
@@ -531,6 +551,10 @@ function (_React$Component) {
       this.props.fetchCart();
     }
   }, {
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {// dispatch(this.props.clearCartItems());
+    }
+  }, {
     key: "cartTotal",
     value: function cartTotal(cartItems) {
       var _this = this;
@@ -543,6 +567,8 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      var _this2 = this;
+
       var cartItems = this.props.cartItems;
       if (!cartItems) return null;
       this.cartTotal(cartItems);
@@ -559,7 +585,8 @@ function (_React$Component) {
       }, cartItems.map(function (cartItem, idx) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_cart_item__WEBPACK_IMPORTED_MODULE_2__["default"], {
           cartItem: cartItem,
-          key: idx
+          key: idx,
+          removeFromCart: _this2.props.removeFromCart
         });
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "payment-container"
@@ -647,6 +674,12 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     fetchCart: function fetchCart() {
       return dispatch(Object(_actions_cart_actions__WEBPACK_IMPORTED_MODULE_2__["fetchCart"])());
+    },
+    removeFromCart: function removeFromCart(id) {
+      return dispatch(Object(_actions_cart_actions__WEBPACK_IMPORTED_MODULE_2__["removeFromCart"])(id));
+    },
+    clearCartItems: function clearCartItems() {
+      return dispatch(Object(_actions_cart_actions__WEBPACK_IMPORTED_MODULE_2__["clearCartItems"])());
     }
   };
 };
@@ -1635,6 +1668,16 @@ var Listing = function Listing(_ref) {
     user_id: currentUser,
     listing_id: listing.id
   };
+  var buttonDisplay = currentUser ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    to: "/cart"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    className: "atc-button",
+    onClick: Object(_util_cart_api_util__WEBPACK_IMPORTED_MODULE_2__["addToCart"])(cartItem)
+  }, "Add to Cart")) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    to: "/login"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    className: "atc-button"
+  }, "Log In to Purchase"));
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "listing-container"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1673,12 +1716,7 @@ var Listing = function Listing(_ref) {
     to: "/sneakers/".concat(listing.sneaker_id)
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     className: "cancel-button"
-  }, "Cancel")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-    to: "/cart"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-    className: "atc-button",
-    onClick: Object(_util_cart_api_util__WEBPACK_IMPORTED_MODULE_2__["addToCart"])(cartItem)
-  }, "Add to Cart")));
+  }, "Cancel")), buttonDisplay);
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Listing);
@@ -2452,8 +2490,8 @@ document.addEventListener("DOMContentLoaded", function () {
   window.fetchSneakers = _actions_sneaker_actions__WEBPACK_IMPORTED_MODULE_8__["fetchSneakers"];
   window.searchSneakers = _actions_sneaker_actions__WEBPACK_IMPORTED_MODULE_8__["searchSneakers"];
   window.fetchCart = _util_cart_api_util__WEBPACK_IMPORTED_MODULE_6__["fetchCart"];
-  window.addToCart = _util_cart_api_util__WEBPACK_IMPORTED_MODULE_6__["addToCart"];
-  window.removeFromCart = _util_cart_api_util__WEBPACK_IMPORTED_MODULE_6__["removeFromCart"]; // End Testing
+  window.addToCart = _util_cart_api_util__WEBPACK_IMPORTED_MODULE_6__["addToCart"]; // window.removeFromCart = CartUtil.removeFromCart;
+  // End Testing
 
   var root = document.getElementById('root');
   react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_root__WEBPACK_IMPORTED_MODULE_2__["default"], {
@@ -2474,20 +2512,26 @@ document.addEventListener("DOMContentLoaded", function () {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_cart_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/cart_actions */ "./frontend/actions/cart_actions.js");
 
+var cartItemsDefaultState = {};
 
 var CartItemsReducer = function CartItemsReducer() {
-  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : cartItemsDefaultState;
   var action = arguments.length > 1 ? arguments[1] : undefined;
   Object.freeze(state);
 
   switch (action.type) {
     case _actions_cart_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_CART"]:
       return Object.assign({}, state, action.cartItems);
-    // receive cart item merges newly created cart item into state
+
+    case _actions_cart_actions__WEBPACK_IMPORTED_MODULE_0__["DELETE_CART_ITEM"]:
+      var nextState = Object.assign({}, state);
+      delete nextState[action.cartItemId];
+      return nextState;
+
+    case _actions_cart_actions__WEBPACK_IMPORTED_MODULE_0__["CLEAR_CART_ITEMS"]:
+      return cartItemsDefaultState;
 
     default:
-      // remove cart item will receive ID on successful backend deletion and
-      // go into new state object (let state = Object.assign({}, state, ))
       return state;
   }
 };
@@ -2702,7 +2746,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_sneaker_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/sneaker_actions */ "./frontend/actions/sneaker_actions.js");
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
- // import { RECEIVE_CART } from '../actions/cart_actions';
 
 var sneakerDefaultState = {};
 
@@ -2721,8 +2764,6 @@ var SneakersReducer = function SneakersReducer() {
 
     case _actions_sneaker_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_SEARCH"]:
       return Object.assign({}, state, action.sneakers);
-    // case RECEIVE_CART:
-    //   return Object.assign({}, state, action.sneakers);
 
     case _actions_sneaker_actions__WEBPACK_IMPORTED_MODULE_0__["RESET_SNEAKERS"]:
       return sneakerDefaultState;
@@ -2829,7 +2870,7 @@ var addToCart = function addToCart(cart_item) {
   });
 };
 var removeFromCart = function removeFromCart(id) {
-  $.ajax({
+  return $.ajax({
     method: 'DELETE',
     url: "/api/cart_items/".concat(id)
   });

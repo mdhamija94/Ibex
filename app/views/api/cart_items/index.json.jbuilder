@@ -15,27 +15,3 @@ json.cart_items do
     end
   end
 end
-
-# json.listings do
-#   @cart_items.each do |cart_item|
-#     json.set! cart_item.id do
-#       json.extract! cart_item.listing, :id, :size, :price
-#     end
-#   end
-# end
-
-# json.sneakers do
-#   @cart_items.each do |cart_item|
-#     json.set! cart_item.id do
-#       json.extract! cart_item.listing.sneaker, :id, :name
-
-#      if cart_item.listing.sneaker.photo.attached? 
-#         json.photoUrl url_for(cart_item.listing.sneaker.photo)
-#       else
-#         json.photoUrl ""
-#       end 
-#     end
-#   end
-# end
-
-# CartItem.new({ user_id: 16, listing_id: 8632 })

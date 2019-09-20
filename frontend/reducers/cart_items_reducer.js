@@ -1,15 +1,20 @@
-import { RECEIVE_CART } from '../actions/cart_actions';
+import { RECEIVE_CART, DELETE_CART_ITEM, CLEAR_CART_ITEMS } from '../actions/cart_actions';
 
-const CartItemsReducer = (state = {}, action) => {
+const cartItemsDefaultState = {};
+
+const CartItemsReducer = (state = cartItemsDefaultState, action) => {
   Object.freeze(state);
 
   switch (action.type) {
     case RECEIVE_CART:
       return Object.assign({}, state, action.cartItems);
-      // receive cart item merges newly created cart item into state
+    case DELETE_CART_ITEM: 
+      let nextState = Object.assign({}, state);
+      delete nextState[action.cartItemId];
+      return nextState;
+    case CLEAR_CART_ITEMS:
+      return cartItemsDefaultState;
     default:
-      // remove cart item will receive ID on successful backend deletion and
-      // go into new state object (let state = Object.assign({}, state, ))
       return state;
   }
 };

@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { removeFromCart } from '../../util/cart_api_util';
 
 class CartItem extends React.Component {
   constructor(props) {
@@ -9,9 +8,8 @@ class CartItem extends React.Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick(e) {
-    e.stopPropagation(); 
-    removeFromCart(this.props.cartItem.id);
+  handleClick() {
+    this.props.removeFromCart(this.props.cartItem.id);
   }
 
   render() {

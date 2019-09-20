@@ -14,11 +14,6 @@ class Api::CartItemsController < ApplicationController
     else
       render json: @cart_item.errors.full_messages, status: 422
     end
-
-    # use parameters from ajax post
-    # status codes 200 on sucess to trigger success callback (only push user to cart on success)
-    # 404 or something on failure 
-    # dispatch ajax request directly from button and chain on .then to go to cart 
   end
 
   def destroy

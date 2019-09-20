@@ -12,6 +12,10 @@ class CartItemsIndex extends React.Component {
     this.props.fetchCart();
   }
 
+  componentWillUnmount() {
+    // dispatch(this.props.clearCartItems());
+  }
+
   cartTotal(cartItems) {
     this.orderSubtotal = 0
 
@@ -39,7 +43,7 @@ class CartItemsIndex extends React.Component {
             {
               cartItems.map((cartItem, idx) => {
                 return (
-                  <CartItem cartItem={cartItem} key={idx} />
+                  <CartItem cartItem={cartItem} key={idx} removeFromCart={this.props.removeFromCart} />
                 )
               })
             }

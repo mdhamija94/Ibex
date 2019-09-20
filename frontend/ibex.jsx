@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   window.fetchCart = CartUtil.fetchCart;
   window.addToCart = CartUtil.addToCart;
-  window.removeFromCart = CartUtil.removeFromCart;
+  // window.removeFromCart = CartUtil.removeFromCart;
   // End Testing
 
   const root = document.getElementById('root');
