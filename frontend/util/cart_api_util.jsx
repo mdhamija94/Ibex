@@ -6,7 +6,7 @@ export const fetchCart = () => {
 };
 
 export const addToCart = (cart_item) => {
-  $.ajax({
+  return $.ajax({
     method: 'POST',
     url: '/api/cart_items',
     data: { cart_item }

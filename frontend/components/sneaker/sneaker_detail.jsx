@@ -49,7 +49,7 @@ class SneakerDetail extends React.Component {
             <Switch>
               <Route 
                 path="/sneakers/:sneakerId/listings/:listingId" 
-                render={(props) => <Listing props={props} sneaker={this.props.sneaker} listings={this.props.listings} currentUser={this.props.currentUser} />} 
+                render={(props) => <Listing props={props} sneaker={this.props.sneaker} listings={this.props.listings} currentUser={this.props.currentUser} addToCart={this.props.addToCart} />} 
               />
               <Route 
                 path="/sneakers/:sneakerId/listings" 

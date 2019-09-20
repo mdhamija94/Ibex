@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { addToCart } from '../../../util/cart_api_util';
+// import { addToCart } from '../../../util/cart_api_util';
 
-const Listing = ({ props, sneaker, listings, currentUser }) => {
+const Listing = ({ props, sneaker, listings, currentUser, addToCart }) => {
   const listing = listings[props.match.params.listingId];
 
   const cartItem = {
@@ -12,9 +12,9 @@ const Listing = ({ props, sneaker, listings, currentUser }) => {
 
   const buttonDisplay = currentUser ? (
     <Link to="/cart">
-      <button className="atc-button" onClick={addToCart(cartItem)}>
+      <button className="atc-button" onClick={() => addToCart(cartItem)}>
         Add to Cart
-        </button>
+      </button>
     </Link>
   ) : (
     <Link to="/login">

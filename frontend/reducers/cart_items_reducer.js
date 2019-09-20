@@ -1,4 +1,4 @@
-import { RECEIVE_CART, DELETE_CART_ITEM, CLEAR_CART_ITEMS } from '../actions/cart_actions';
+import { RECEIVE_CART, CREATE_CART_ITEM, DELETE_CART_ITEM, CLEAR_CART_ITEMS } from '../actions/cart_actions';
 
 const cartItemsDefaultState = {};
 
@@ -7,7 +7,9 @@ const CartItemsReducer = (state = cartItemsDefaultState, action) => {
 
   switch (action.type) {
     case RECEIVE_CART:
-      return Object.assign({}, state, action.cartItems);
+      return action.cartItems
+    case CREATE_CART_ITEM:
+      return Object.assign({}, state, action.cartItem);
     case DELETE_CART_ITEM: 
       let nextState = Object.assign({}, state);
       delete nextState[action.cartItemId];
