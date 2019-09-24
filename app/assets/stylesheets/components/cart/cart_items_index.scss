@@ -35,6 +35,15 @@
   color: #777777;
 }
 
+.cart-empty-notice {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  font-family: 'Source Serif Pro', serif;
+  color: #777777;
+  padding: 10px;
+}
+
 .cart-items-container {
   width: 90%;
   margin: 0px auto 50px;
@@ -138,4 +147,11 @@
 #cc {
   margin-top: -5px;
   font-size: 14px;
+}
+
+.checkout-disclaimer {
+  font-size: 11px;
+  text-align: center;
+  color: #777777;
+  padding: 15px 20px;
 }
