@@ -26,20 +26,19 @@ class CartItemsIndex extends React.Component {
 
     this.cartTotal(cartItems);
 
-    let cartIndexDisplay = cartItems.length ? (
-      <ul className="cart-items-container">
-        {
-          cartItems.map((cartItem, idx) => {
-            return (
-              <CartItem cartItem={cartItem} key={idx} removeFromCart={this.props.removeFromCart} />
-            )
-          })
-        }
-      </ul>
-    ) : (
+    // let cartIndexDisplay = cartItems.length ? (
+    //   <div></div>
+    // ) : (
+    //   <div className="cart-empty-notice">
+    //     You have no items in your shopping cart.
+    //   </div>
+    // )
+    let cartEmptyDisplay = !cartItems.length ? (
       <div className="cart-empty-notice">
         You have no items in your shopping cart.
       </div>
+    ) : (
+      <div></div>
     )
 
     let shipping = cartItems.length ? 10 : 0;
@@ -71,10 +70,24 @@ class CartItemsIndex extends React.Component {
       <div className="checkout-disclaimer">
         IBEX is an exercise in developing a Full Stack web application using
         React, Redux, and Ruby on Rails, so while you can’t checkout the Cart
-        you’ve assembled, you can “Checkout” the code behind the site.
+        you’ve assembled, you can “check out” the code behind the site.
       </div>
     ) : (
       <div></div>
+    )
+
+    let checkoutDisplay = cartItems.length ? (
+      <a href="https://github.com/mdhamija94/IBEX">
+        <button className="atc-button">
+          Checkout
+        </button>
+      </a>
+    ) : (
+      <Link to="/cart">
+        <button className="atc-button">
+          Checkout
+        </button>
+      </Link>
     )
 
     return (
@@ -86,7 +99,16 @@ class CartItemsIndex extends React.Component {
           <div className="cart-header">
             Shopping Cart
           </div>
-          {cartIndexDisplay}
+          <ul className="cart-items-container">
+            {
+              cartItems.map((cartItem, idx) => {
+                return (
+                  <CartItem cartItem={cartItem} key={idx} removeFromCart={this.props.removeFromCart} />
+                )
+              })
+            }
+          </ul>
+          {cartEmptyDisplay}
         </div>
 
         <div className="payment-container">
@@ -110,11 +132,7 @@ class CartItemsIndex extends React.Component {
             </button>
           </Link>
 
-          <a href="https://github.com/mdhamija94/IBEX">
-            <button className="atc-button">
-              Checkout
-            </button>
-          </a>
+          {checkoutDisplay}
         </div>
       </article>
     )

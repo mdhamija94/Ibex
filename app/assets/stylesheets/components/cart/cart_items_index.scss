@@ -41,12 +41,15 @@
   text-align: center;
   font-family: 'Source Serif Pro', serif;
   color: #777777;
-  padding: 10px;
+  padding: 11px;
+  margin: -1px 0px 0px;
+  background-color: white;
+  // z-index: 50;
 }
 
 .cart-items-container {
   width: 90%;
-  margin: 0px auto 50px;
+  margin: 0px auto;
   border-top: 1px solid #B1B1B1;
 }
 
@@ -61,6 +64,10 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
+}
+
+.cart-item-container:last-of-type {
+  margin-bottom: 50px;
 }
 
 .cart-item-image {

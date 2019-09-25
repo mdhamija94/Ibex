@@ -580,18 +580,17 @@ function (_React$Component) {
 
       var cartItems = this.props.cartItems;
       if (!cartItems) return null;
-      this.cartTotal(cartItems);
-      var cartIndexDisplay = cartItems.length ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
-        className: "cart-items-container"
-      }, cartItems.map(function (cartItem, idx) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_cart_item__WEBPACK_IMPORTED_MODULE_2__["default"], {
-          cartItem: cartItem,
-          key: idx,
-          removeFromCart: _this2.props.removeFromCart
-        });
-      })) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      this.cartTotal(cartItems); // let cartIndexDisplay = cartItems.length ? (
+      //   <div></div>
+      // ) : (
+      //   <div className="cart-empty-notice">
+      //     You have no items in your shopping cart.
+      //   </div>
+      // )
+
+      var cartEmptyDisplay = !cartItems.length ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "cart-empty-notice"
-      }, "You have no items in your shopping cart.");
+      }, "You have no items in your shopping cart.") : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null);
       var shipping = cartItems.length ? 10 : 0;
       var orderDetailDisplay = cartItems.length ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         className: "order-total-fact"
@@ -623,7 +622,16 @@ function (_React$Component) {
       }, "$", shipping))) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null);
       var disclaimerDisplay = cartItems.length ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "checkout-disclaimer"
-      }, "IBEX is an exercise in developing a Full Stack web application using React, Redux, and Ruby on Rails, so while you can\u2019t checkout the Cart you\u2019ve assembled, you can \u201CCheckout\u201D the code behind the site.") : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null);
+      }, "IBEX is an exercise in developing a Full Stack web application using React, Redux, and Ruby on Rails, so while you can\u2019t checkout the Cart you\u2019ve assembled, you can \u201Ccheck out\u201D the code behind the site.") : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null);
+      var checkoutDisplay = cartItems.length ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "https://github.com/mdhamija94/IBEX"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "atc-button"
+      }, "Checkout")) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        to: "/cart"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "atc-button"
+      }, "Checkout"));
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("article", {
         className: "cart-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -632,7 +640,15 @@ function (_React$Component) {
         className: "cart-subheader"
       }, cartItems.length, " Items"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "cart-header"
-      }, "Shopping Cart"), cartIndexDisplay), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "Shopping Cart"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+        className: "cart-items-container"
+      }, cartItems.map(function (cartItem, idx) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_cart_item__WEBPACK_IMPORTED_MODULE_2__["default"], {
+          cartItem: cartItem,
+          key: idx,
+          removeFromCart: _this2.props.removeFromCart
+        });
+      })), cartEmptyDisplay), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "payment-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "payment-header"
@@ -650,11 +666,7 @@ function (_React$Component) {
         to: "/sneakers"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "cancel-button"
-      }, "Shop More")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        href: "https://github.com/mdhamija94/IBEX"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "atc-button"
-      }, "Checkout"))));
+      }, "Shop More")), checkoutDisplay));
     }
   }]);
 
@@ -732,7 +744,7 @@ var Footer = function Footer() {
   }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
     className: "footer-icon-container"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-    href: "https://github.com/mdhamija94/IBEX"
+    href: "https://github.com/mdhamija94/"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
     className: "fab fa-github"
   }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {

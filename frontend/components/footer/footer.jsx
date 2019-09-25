@@ -10,7 +10,7 @@ const Footer = () => {
           </a>
         </li>
         <li className="footer-icon-container">
-          <a href="https://github.com/mdhamija94/IBEX">
+          <a href="https://github.com/mdhamija94/">
             <i className="fab fa-github"></i>
           </a>
         </li>
