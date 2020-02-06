@@ -25,5 +25,3 @@ const SneakerTitlePanel = ({ props, lowestPrice }) => {
 };
 
 export default SneakerTitlePanel;
-
-// { this.state.showListings ? "listings" : sneaker.name }

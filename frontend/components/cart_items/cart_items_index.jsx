@@ -26,13 +26,6 @@ class CartItemsIndex extends React.Component {
 
     this.cartTotal(cartItems);
 
-    // let cartIndexDisplay = cartItems.length ? (
-    //   <div></div>
-    // ) : (
-    //   <div className="cart-empty-notice">
-    //     You have no items in your shopping cart.
-    //   </div>
-    // )
     let cartEmptyDisplay = !cartItems.length ? (
       <div className="cart-empty-notice">
         You have no items in your shopping cart.
