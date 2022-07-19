@@ -1,24 +1,28 @@
-# README
+# IBEX
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+IBEX is a clone of the global destination for buying and selling sneakers, GOAT.com (circa 2019).
 
-Things you may want to cover:
+[Live Demo](http://ibex-io.herokuapp.com/#/)
 
-* Ruby version
+# Technologies
 
-* System dependencies
+* Backend: Ruby on Rails, Active Record, PostgreSQL
+* Frontend: React + Redux
 
-* Configuration
+# Features
 
-* Database creation
+* Secure backend to frontend user authentication via BCrypt
+* Debounced backend search to efficiently lookup sneakers in the database by name, brand, SKU, or designer
+* Ability to add products to cart and build up a shopping cart for registered users
 
-* Database initialization
+## Auth
 
-* How to run the test suite
+https://user-images.githubusercontent.com/49291233/179700517-a5324b7a-99a2-4ec2-ad08-313689df97ff.mov
 
-* Services (job queues, cache servers, search engines, etc.)
+## Search
 
-* Deployment instructions
+https://user-images.githubusercontent.com/49291233/179700539-db5af901-9cd3-41bb-9bef-3bf5ae251d6a.mov
 
-* ...
+## Shopping Cart
+
+https://user-images.githubusercontent.com/49291233/179700550-78514c6e-a701-462c-9a48-7d32e0b43ccf.mov
